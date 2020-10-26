@@ -1,0 +1,753 @@
+---
+openapi: "3.0.0"
+info:
+  title: "Cabalito API"
+  description: "This is an API for Cabalito App"
+  contact:
+    email: "cabalitoapp@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+  version: "1.0.0"
+servers:
+- url: "https://cabalito.com/api"
+tags:
+- name: "seller"
+  description: "Seller user"
+paths:
+  /seller:
+    get:
+      tags:
+      - "seller"
+      summary: "get information from an user"
+      description: "get more information about the user\n"
+      operationId: "getSeller"
+      parameters:
+      - name: "idSeller"
+        in: "cookie"
+        description: "post seller id"
+        required: true
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      responses:
+        "200":
+          description: "successful operation"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  seller:
+                    $ref: "#/components/schemas/User"
+        "400":
+          description: "Invalid sellerId value."
+    put:
+      tags:
+      - "seller"
+      summary: "edit seller information"
+      description: "You can change some information about your user account\n"
+      operationId: "editSeller"
+      parameters:
+      - name: "idSeller"
+        in: "cookie"
+        description: "post seller id"
+        required: true
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      requestBody:
+        content:
+          aplication/json:
+            schema:
+              type: "object"
+              properties:
+                seller:
+                  $ref: "#/components/schemas/User"
+        required: true
+      responses:
+        "201":
+          description: "Seller edited."
+        "500":
+          description: "Internal Error."
+        "400":
+          description: "Bad request."
+    post:
+      tags:
+      - "seller"
+      summary: "register a new seller"
+      description: "register a new user\n"
+      operationId: "addSeller"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                user:
+                  $ref: "#/components/schemas/User"
+      responses:
+        "201":
+          description: "Publication created."
+        "500":
+          description: "Internal Error."
+        "400":
+          description: "Bad request."
+  /seller/{idSeller}/image:
+    put:
+      tags:
+      - "seller"
+      summary: "uploads an seller image"
+      operationId: "uploadSellerImage"
+      parameters:
+      - name: "idSeller"
+        in: "path"
+        description: "ID of seller to update"
+        required: true
+        style: "simple"
+        explode: false
+        schema:
+          type: "integer"
+          format: "int64"
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              type: "string"
+              format: "binary"
+      responses:
+        "200":
+          description: "successful operation"
+  /seller/publications:
+    get:
+      tags:
+      - "seller"
+      summary: "Show publication list"
+      description: "By entering into cabalito's app the list of all published vehicles\
+        \ will be deployed\n"
+      operationId: "sellerPublicationList"
+      parameters:
+      - name: "idSeller"
+        in: "cookie"
+        description: "post seller id"
+        required: true
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      responses:
+        "200":
+          description: "generate post result"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  publications:
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/Publication"
+        "400":
+          description: "Bad request"
+        "404":
+          description: "Not found user"
+        "500":
+          description: "Internal server error"
+  /publications:
+    get:
+      tags:
+      - "seller"
+      summary: "Show publication list"
+      description: "By entering into cabalito's app the list of all published vehicles\
+        \ will be deployed\n"
+      operationId: "publicationList"
+      parameters:
+      - name: "initialId"
+        in: "query"
+        description: "initialId for the list of publications\n"
+        required: true
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      - name: "numberRows"
+        in: "query"
+        description: "numberRows for the list of publications\n"
+        required: true
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      - name: "idBrand"
+        in: "query"
+        description: "idBrand for search\n"
+        required: false
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      - name: "idModel"
+        in: "query"
+        description: "idModel for search\n"
+        required: false
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      - name: "idColor"
+        in: "query"
+        description: "idColor for search\n"
+        required: false
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      - name: "idDoorNumber"
+        in: "query"
+        description: "idDoorNumber for search\n"
+        required: false
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      - name: "idCity"
+        in: "query"
+        description: "idCity for search\n"
+        required: false
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      responses:
+        "200":
+          description: "generate post result"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  publications:
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/Publication"
+                  colors:
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/Color"
+                  doorNumbers:
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/DoorNumber"
+                  models:
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/Model"
+                  brands:
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/Brand"
+                  citys:
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/City"
+                  totalRecords:
+                    type: "number"
+                    example: 5
+        "400":
+          description: "Bad request"
+        "404":
+          description: "Not found user"
+        "500":
+          description: "Internal server error"
+    post:
+      tags:
+      - "seller"
+      summary: "add new publication"
+      description: "By passing the appropriate options, you can add a new publication\n"
+      operationId: "addPublication"
+      parameters:
+      - name: "idSeller"
+        in: "cookie"
+        description: "post seller id"
+        required: true
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      requestBody:
+        content:
+          aplication/json:
+            schema:
+              type: "object"
+              properties:
+                publication:
+                  $ref: "#/components/schemas/Publication"
+        required: true
+      responses:
+        "201":
+          description: "Publication created."
+        "500":
+          description: "Internal Error."
+        "400":
+          description: "Bad request."
+  /publications/{idPublication}/image:
+    post:
+      tags:
+      - "seller"
+      summary: "uploads an seller image"
+      operationId: "uploadPublicationImage"
+      parameters:
+      - name: "idSeller"
+        in: "cookie"
+        description: "post seller id"
+        required: true
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      - name: "idPublication"
+        in: "path"
+        description: "post publication id"
+        required: true
+        style: "simple"
+        explode: false
+        schema:
+          type: "integer"
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              type: "string"
+              format: "binary"
+        required: true
+      responses:
+        "201":
+          description: "Publication image created."
+        "500":
+          description: "Internal Error."
+        "400":
+          description: "Bad request."
+  /publications/{idPublication}:
+    get:
+      tags:
+      - "seller"
+      summary: "See detail of a vehicle"
+      description: "By clicking in the publication, the user will be able to see all\
+        \ details \nof the publication\n"
+      operationId: "get publication details"
+      parameters:
+      - name: "idPublication"
+        in: "path"
+        description: "Publication ID"
+        required: true
+        style: "simple"
+        explode: false
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "Viewing Successful Post"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  publication:
+                    $ref: "#/components/schemas/Publication"
+        "500":
+          description: "Internal server error"
+    put:
+      tags:
+      - "seller"
+      summary: "edit publication"
+      description: "By passing the appropriate options, you can edit a publication\n"
+      operationId: "editPublication"
+      parameters:
+      - name: "idSeller"
+        in: "cookie"
+        description: "post seller id"
+        required: true
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      - name: "idPublication"
+        in: "path"
+        description: "Publication ID"
+        required: true
+        style: "simple"
+        explode: false
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          aplication/json:
+            schema:
+              type: "object"
+              properties:
+                publication:
+                  $ref: "#/components/schemas/Publication"
+        required: true
+      responses:
+        "201":
+          description: "Modified publication."
+        "500":
+          description: "Internal Error."
+        "400":
+          description: "Bad request."
+    delete:
+      tags:
+      - "seller"
+      summary: "remove publication"
+      description: "By passing the appropriate options, you can remove a publication\n"
+      operationId: "removePublication"
+      parameters:
+      - name: "idSeller"
+        in: "cookie"
+        description: "post seller id"
+        required: true
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      - name: "idPublication"
+        in: "path"
+        description: "Publication ID"
+        required: true
+        style: "simple"
+        explode: false
+        schema:
+          type: "string"
+      responses:
+        "201":
+          description: "Deleted publication."
+        "500":
+          description: "Internal Error."
+        "400":
+          description: "Bad request."
+  /mechanics:
+    get:
+      tags:
+      - "seller"
+      summary: "deploy mechanic list"
+      description: "By entering into the mechanic section the list of all mechanic\
+        \ that are vinculated \nto the aplication will be deploy\n"
+      operationId: "deployMechanicList"
+      parameters:
+      - name: "initialId"
+        in: "query"
+        description: "initialId for the list of publications\n"
+        required: true
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      - name: "numberRows"
+        in: "query"
+        description: "numberRows for the list of publications\n"
+        required: true
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      - name: "idCity"
+        in: "query"
+        description: "idCity for search\n"
+        required: false
+        style: "form"
+        explode: true
+        schema:
+          type: "integer"
+      responses:
+        "200":
+          description: "get results matching criteria"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    mechanic:
+                      $ref: "#/components/schemas/Mechanic"
+        "500":
+          description: "internal server error"
+    post:
+      tags:
+      - "seller"
+      summary: "qualify mechanic"
+      description: "Qualify a Mechanic that appears into the list\n"
+      operationId: "qualifyMechanic"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                mechanic:
+                  $ref: "#/components/schemas/Mechanic"
+      responses:
+        "201":
+          description: "qualified mechanic"
+        "400":
+          description: "invalid input"
+        "500":
+          description: "internal server error"
+  /mechanics/{idMechanic}:
+    get:
+      tags:
+      - "seller"
+      summary: "show mechanic contact"
+      description: "By clicking on the option mechanic contact, the user will be able\
+        \ to see the \nmechanic's contact information\n"
+      operationId: "showMechanicContact"
+      parameters:
+      - name: "idMechanic"
+        in: "path"
+        description: "pass the mechanicId to look for the information related to it"
+        required: true
+        style: "simple"
+        explode: false
+        schema:
+          type: "integer"
+          example: 6
+      responses:
+        "200":
+          description: "get results matching criteria"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  mechanic:
+                    $ref: "#/components/schemas/Mechanic"
+        "400":
+          description: "bad input parameter"
+        "404":
+          description: "not found user"
+        "500":
+          description: "internal server error"
+components:
+  schemas:
+    User:
+      required:
+      - "email"
+      - "first_name"
+      - "id_seller"
+      - "last_name"
+      - "password"
+      - "phone_number"
+      - "status"
+      type: "object"
+      properties:
+        id_seller:
+          type: "integer"
+          example: 1
+        email:
+          type: "string"
+          example: "erwin.alejo@gmail.com"
+        password:
+          type: "string"
+          example: "hola12345"
+        first_name:
+          type: "string"
+          example: "Erwin"
+        last_name:
+          type: "string"
+          example: "Alejo Gutierrez"
+        phone_number:
+          type: "string"
+          example: "Alejo Gutierrez"
+        status:
+          type: "boolean"
+          example: false
+    Publication:
+      required:
+      - "description"
+      - "id_brand"
+      - "id_city"
+      - "id_color"
+      - "id_door_number"
+      - "id_model"
+      - "id_publication"
+      - "id_seller"
+      - "license_plate"
+      - "price"
+      - "status"
+      type: "object"
+      properties:
+        id_publication:
+          type: "integer"
+          example: 5
+        id_seller:
+          type: "integer"
+          example: 6
+        id_door_number:
+          type: "integer"
+          example: 5
+        id_model:
+          type: "integer"
+          example: 6
+        id_brand:
+          type: "integer"
+          example: 5
+        id_color:
+          type: "integer"
+          example: 6
+        id_city:
+          type: "integer"
+          example: 6
+        license_plate:
+          type: "string"
+          example: "5DF2D2"
+        description:
+          type: "string"
+          example: "Luces rotas"
+        motor:
+          type: "string"
+          example: "BM350"
+        price:
+          type: "integer"
+          example: 9000
+        status:
+          type: "boolean"
+          example: false
+    ImagePublication:
+      required:
+      - "id_image_publication"
+      - "id_publication"
+      - "path"
+      - "status"
+      type: "object"
+      properties:
+        id_image_publication:
+          type: "integer"
+          example: 10
+        path:
+          type: "string"
+          format: "url"
+          example: "https://www.acme-corp.com"
+        id_publication:
+          type: "integer"
+          example: 10
+        status:
+          type: "boolean"
+          example: false
+    City:
+      required:
+      - "city"
+      - "id_city"
+      - "status"
+      type: "object"
+      properties:
+        id_city:
+          type: "integer"
+          example: 6
+        city:
+          type: "string"
+          example: "La Paz"
+        status:
+          type: "boolean"
+          example: false
+    Brand:
+      required:
+      - "brand"
+      - "id_brand"
+      - "status"
+      type: "object"
+      properties:
+        id_brand:
+          type: "integer"
+          example: 6
+        brand:
+          type: "string"
+          example: "La Paz"
+        status:
+          type: "boolean"
+          example: false
+    Model:
+      required:
+      - "id_model"
+      - "model"
+      - "status"
+      type: "object"
+      properties:
+        id_model:
+          type: "integer"
+          example: 6
+        model:
+          type: "string"
+          example: "La Paz"
+        status:
+          type: "boolean"
+          example: false
+    Color:
+      required:
+      - "color"
+      - "id_color"
+      - "status"
+      type: "object"
+      properties:
+        id_color:
+          type: "integer"
+          example: 6
+        color:
+          type: "string"
+          example: "La Paz"
+        status:
+          type: "boolean"
+          example: false
+    DoorNumber:
+      required:
+      - "door_number"
+      - "id_door_number"
+      - "status"
+      type: "object"
+      properties:
+        id_door_number:
+          type: "integer"
+          example: 6
+        door_number:
+          type: "string"
+          example: "La Paz"
+        status:
+          type: "boolean"
+          example: false
+    Mechanic:
+      required:
+      - "id_city"
+      - "id_mechanic"
+      - "id_person"
+      - "location"
+      - "shop_name"
+      - "stars"
+      - "stars_count"
+      - "status"
+      type: "object"
+      properties:
+        id_mechanic:
+          type: "integer"
+          example: 6
+        id_person:
+          type: "integer"
+          example: 6
+        id_city:
+          type: "integer"
+          example: 5
+        location:
+          type: "string"
+          example: "Av. Arce, No. 195"
+        shop_name:
+          type: "string"
+          example: "Mecamax"
+        stars:
+          type: "integer"
+          example: 6
+        stars_count:
+          type: "integer"
+          example: 50
+        status:
+          type: "boolean"
+          example: false
