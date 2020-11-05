@@ -1,7 +1,7 @@
 create database cabalito_db;
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2020-10-29 21:42:53.855
-
+use cabalito_db;
 -- tables
 -- Table: brand
 CREATE TABLE brand (
