@@ -1,6 +1,6 @@
-package bo.ucb.edu.ingsoft.model;
+package bo.ucb.edu.ingsoft.dto;
 
-public class Publication {
+public class PublicationRequest {
     private int idPublication;
     private int idSeller;
     private int idBrand;
@@ -13,9 +13,7 @@ public class Publication {
     private String motor;
     private double price;
     private boolean status;
-    private Transaction transaction;
-
-    public Publication() {
+    public PublicationRequest() {
     }
 
     public int getIdPublication() {
@@ -106,15 +104,7 @@ public class Publication {
         this.price = price;
     }
 
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
-    }
-
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 
@@ -124,7 +114,7 @@ public class Publication {
 
     @Override
     public String toString() {
-        return "Publication{" +
+        return "PublicationRequest{" +
                 "idPublication=" + idPublication +
                 ", idSeller=" + idSeller +
                 ", idBrand=" + idBrand +
@@ -137,7 +127,6 @@ public class Publication {
                 ", motor='" + motor + '\'' +
                 ", price=" + price +
                 ", status=" + status +
-                ", transaction=" + transaction +
                 '}';
     }
 }
