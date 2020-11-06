@@ -12,6 +12,7 @@ public class Publication {
     private String description;
     private String motor;
     private double price;
+    private boolean status;
     private Transaction transaction;
 
     public Publication() {
