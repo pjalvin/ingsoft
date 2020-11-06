@@ -3,7 +3,7 @@ package bo.ucb.edu.ingsoft.model;
 import java.util.Date;
 
 public class Transaction {
-    private Date tx_date;
+    private Date txDate;
     private int txIduser;
     private String host;
     private Date txUpdate;
@@ -11,12 +11,12 @@ public class Transaction {
     public Transaction() {
     }
 
-    public Date getTx_date() {
-        return tx_date;
+    public Date getTxDate() {
+        return txDate;
     }
 
-    public void setTx_date(Date tx_date) {
-        this.tx_date = tx_date;
+    public void setTxDate(Date txDate) {
+        this.txDate = txDate;
     }
 
     public int getTxIduser() {
@@ -46,7 +46,7 @@ public class Transaction {
     @Override
     public String toString() {
         return "Transaction{" +
-                "tx_date=" + tx_date +
+                "tx_date=" + txDate +
                 ", txIduser=" + txIduser +
                 ", host='" + host + '\'' +
                 ", txUpdate=" + txUpdate +
