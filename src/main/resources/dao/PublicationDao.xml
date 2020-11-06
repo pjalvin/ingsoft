@@ -9,4 +9,7 @@
         #{doorNumber},#{description},#{motor},#{price},1,#{transaction.txDate},
         #{transaction.txIduser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
+    <select id="findByContactId" resultType="bo.ucb.edu.ingsoft.dto.Contact">
+        SELECT * FROM Publication LIMIT 10 OFFSET 15
+    </select>
 </mapper>

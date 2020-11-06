@@ -40,7 +40,7 @@ public class PublicationBl {
         return publicationRequest;
      }
 
-    public Publication findContacById(Integer publicationId) {
-        return  publicationDao.findByContactId(publicationId);
+    public Publication findContacById() {
+        return  publicationDao.findByContactId();
     }
 }
