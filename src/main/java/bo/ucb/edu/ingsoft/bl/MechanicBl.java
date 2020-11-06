@@ -4,7 +4,9 @@ import bo.ucb.edu.ingsoft.dao.MechanicDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.model.Mechanic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MechanicBl {
     private MechanicDao mechanicDao;
     private TransactionDao transactionDao;

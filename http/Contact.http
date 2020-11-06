@@ -8,5 +8,15 @@ Accept: application/json
 Content-Type: application/json
 
 {
+  "idSeller": 1,
+  "idBrand": 1,
+  "idColor": 1,
+  "idCity": 1,
+  "model": 2018,
+  "doorNumber": 5,
+  "licensePlate": "4089ZPL",
+  "description": "Hermoso auto con todas las prestaciones y confort",
+  "motor": "1600cc",
+  "price": 15000.500
 }
 

@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.ingsoft.dao.PublicationDao">
-    <insert id="findByContactId" parameterType="bo.ucb.edu.ingsoft.model.Publication">
+    <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Publication">
         INSERT into Publication VALUES
         (null,#{idSeller},#{idSeller},#{idBrand},#{idColor},#{idCity},#{model},
         #{doorNumber},#{description},#{motor},#{price},1,#{transaction.txDate},
