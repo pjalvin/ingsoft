@@ -39,4 +39,8 @@ public class PublicationBl {
         publicationRequest.setIdPublication(publicationId);
         return publicationRequest;
      }
+
+    public Publication findContacById(Integer publicationId) {
+        return  publicationDao.findByContactId(publicationId);
+    }
 }
