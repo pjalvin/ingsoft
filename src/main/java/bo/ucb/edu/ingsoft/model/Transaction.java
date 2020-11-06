@@ -5,7 +5,7 @@ import java.util.Date;
 public class Transaction {
     private Date txDate;
     private int txIduser;
-    private String host;
+    private String txHost;
     private Date txUpdate;
 
     public Transaction() {
@@ -27,12 +27,12 @@ public class Transaction {
         this.txIduser = txIduser;
     }
 
-    public String getHost() {
-        return host;
+    public String getTxHost() {
+        return txHost;
     }
 
-    public void setHost(String host) {
-        this.host = host;
+    public void setTxHost(String txHost) {
+        this.txHost = txHost;
     }
 
     public Date getTxUpdate() {
@@ -48,7 +48,7 @@ public class Transaction {
         return "Transaction{" +
                 "tx_date=" + txDate +
                 ", txIduser=" + txIduser +
-                ", host='" + host + '\'' +
+                ", host='" + txHost + '\'' +
                 ", txUpdate=" + txUpdate +
                 '}';
     }

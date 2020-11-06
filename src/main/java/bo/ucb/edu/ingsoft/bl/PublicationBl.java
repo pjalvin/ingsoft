@@ -18,7 +18,7 @@ public class PublicationBl {
         this.publicationDao = publicationDao;
         this.transactionDao = transactionDao;
     }
-     public PublicationRequest createPublication(PublicationRequest publicationRequest, Transaction transaction){
+     public PublicationRequest create(PublicationRequest publicationRequest, Transaction transaction){
 
         Publication publication=new Publication();
         publication.setDescription(publicationRequest.getDescription());
