@@ -1,8 +1,5 @@
 package bo.ucb.edu.ingsoft.bl;
 
-<<<<<<< HEAD
-public class PublicationBl {
-=======
 import bo.ucb.edu.ingsoft.dao.PublicationDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
@@ -42,5 +39,4 @@ public class PublicationBl {
         publicationRequest.setIdPublication(publicationId);
         return publicationRequest;
      }
->>>>>>> origin/main
 }
