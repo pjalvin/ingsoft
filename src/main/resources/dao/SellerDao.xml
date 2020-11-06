@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="bo.ucb.edu.ingsoft.dao.PublicationDao">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.SellerDao">
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Seller">
         INSERT into seller VALUES
         (null,#{idPerson},#{idUser},1,#{imagePath},#{transaction.txDate},
@@ -16,6 +16,6 @@
                status as status
         FROM seller
         WHERE
-            contact_id = 2
+            id_seller = 2
     </select>
 </mapper>

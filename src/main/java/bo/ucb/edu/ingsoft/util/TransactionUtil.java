@@ -13,7 +13,7 @@ public class TransactionUtil {
         transaction.setTxUpdate(new Date());
         transaction.setTxHost(request.getRemoteHost());
         // transaction.setTxUserId(request.getUserPrincipal().getName()); TODO fix username instead of userId
-        transaction.setTxIduser(0);
+        transaction.setTxIduser(1);
         return transaction;
     }
 }

@@ -19,14 +19,14 @@ import javax.servlet.http.HttpServletRequest;
 public class SellerApi {
 
     private SellerBl sellerBl;
-    private TransactionUtil transactionUtil;
+    //private TransactionUtil transactionUtil;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SellerApi.class);
 
     @Autowired
-    public SellerApi(SellerBl sellerBl, TransactionUtil transactionUtil){ //TransactionB transactionBl) {
+    public SellerApi(SellerBl sellerBl){ //TransactionB transactionBl) {
         this.sellerBl = sellerBl;
-        this.transactionUtil =  transactionUtil;
+      //  this.transactionUtil =  transactionUtil;
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
