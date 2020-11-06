@@ -1,4 +1,4 @@
-GET http://localhost:8080/v1/contact
+GET http://localhost:8080/seller
 Accept: application/json
 
 ###

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping(value = "/v1/contact")
+@RequestMapping(value = "/seller")
 public class SellerApi {
 
     private SellerBl sellerBl;
