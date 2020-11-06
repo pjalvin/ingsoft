@@ -13,6 +13,7 @@ public class PublicationRequest {
     private String motor;
     private double price;
     private boolean status;
+
     public PublicationRequest() {
     }
 
