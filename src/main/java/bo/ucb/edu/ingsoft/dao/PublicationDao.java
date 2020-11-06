@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface PublicationDao {
-    public int create(PublicationRequest publicationRequest);
+    public void create(Publication publication);
 }

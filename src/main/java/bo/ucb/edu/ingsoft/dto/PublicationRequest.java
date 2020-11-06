@@ -12,6 +12,7 @@ public class PublicationRequest {
     private String description;
     private String motor;
     private double price;
+    private boolean status;
     public PublicationRequest() {
     }
 
@@ -103,11 +104,17 @@ public class PublicationRequest {
         this.price = price;
     }
 
+    public boolean getStatus() {
+        return status;
+    }
 
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 
     @Override
     public String toString() {
-        return "Publication{" +
+        return "PublicationRequest{" +
                 "idPublication=" + idPublication +
                 ", idSeller=" + idSeller +
                 ", idBrand=" + idBrand +
@@ -119,6 +126,7 @@ public class PublicationRequest {
                 ", description='" + description + '\'' +
                 ", motor='" + motor + '\'' +
                 ", price=" + price +
+                ", status=" + status +
                 '}';
     }
 }

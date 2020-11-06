@@ -114,6 +114,14 @@ public class Publication {
         this.transaction = transaction;
     }
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Publication{" +
@@ -128,6 +136,7 @@ public class Publication {
                 ", description='" + description + '\'' +
                 ", motor='" + motor + '\'' +
                 ", price=" + price +
+                ", status=" + status +
                 ", transaction=" + transaction +
                 '}';
     }
