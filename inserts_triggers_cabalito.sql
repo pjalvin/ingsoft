@@ -92,14 +92,6 @@ INSERT INTO seller VALUES
 (4,4,4,1,"https://cdn.pixabay.com/photo/2017/08/30/17/27/business-woman-2697954_960_720.jpg",now(),1,"192.168.10.1",now()),
 (5,5,5,1,"https://cdn.pixabay.com/photo/2016/11/29/03/36/beautiful-1867093_1280.jpg",now(),1,"192.168.10.1",now());
 
-INSERT INTO mechanic VALUES
-(1,6,1,'Av. 20 de Octubre','Fierro Veloz',0,0,1,NOW(),1,'192.168.10.215',NOW()),
-(2,7,2,'Av. Alemana','Taller Iwanaga',0,0,1,NOW(),1,'192.168.10.215',NOW()),
-(3,8,3,'Av. Busch','Taller Brillante',0,0,1,NOW(),1,'192.168.10.215',NOW()),
-(4,9,4,'Av. Los Sargentos','Taller El Tuercas',0,0,1,NOW(),1,'192.168.10.215',NOW()),
-(5,10,5,'Av. Landaeta','Solo Autos',0,0,1,NOW(),1,'192.168.10.215',NOW());
-
-
 -- Creacion de marcas para la publicacion de los vehiculos
 START TRANSACTION;
 INSERT INTO brand VALUES
