@@ -3,10 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.ingsoft.dao.UserDao">
-    <select id="findUser" resultType="bo.ucb.edu.ingsoft.model.User">
+    <select id="findByUserId" resultType="bo.ucb.edu.ingsoft.model.User">
         SELECT
                id_user as idUser,
-               email as email,
+               email as email
         FROM user
         WHERE
             id_user = #{idUser}
