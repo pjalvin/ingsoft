@@ -12,6 +12,7 @@ Content-Type: application/json
   "idBrand": 1,
   "idColor": 1,
   "idCity": 1,
+  "title": "Toyota Rav4 2014",
   "model": 2018,
   "doorNumber": 5,
   "licensePlate": "4089ZPL",

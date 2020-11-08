@@ -72,6 +72,7 @@ CREATE TABLE h_person (
     CONSTRAINT h_person_pk PRIMARY KEY (id_h_person)
 );
 
+drop table if exists  h_publication;
 -- Table: h_publication
 CREATE TABLE h_publication (
     id_h_publication int NOT NULL AUTO_INCREMENT,
@@ -80,7 +81,7 @@ CREATE TABLE h_publication (
     id_brand int NOT NULL,
     id_color int NOT NULL,
     id_city int NOT NULL,
-    titulo varchar(100) NOT NULL,
+    title varchar(100) NOT NULL,
     model int NOT NULL,
     door_number int NOT NULL,
     license_plate varchar(50) NOT NULL,
@@ -168,7 +169,7 @@ CREATE TABLE person (
     tx_update datetime NOT NULL,
     CONSTRAINT person_pk PRIMARY KEY (id_person)
 );
-
+drop table if exists  publication;
 -- Table: publication
 CREATE TABLE publication (
     id_publication int NOT NULL AUTO_INCREMENT,
@@ -176,7 +177,7 @@ CREATE TABLE publication (
     id_brand int NOT NULL,
     id_color int NOT NULL,
     id_city int NOT NULL,
-    titulo varchar(100) NOT NULL,
+    title varchar(100) NOT NULL,
     model int NOT NULL,
     door_number int NULL,
     license_plate varchar(50) NULL,

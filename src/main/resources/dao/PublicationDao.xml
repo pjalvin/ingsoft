@@ -5,8 +5,8 @@
 <mapper namespace="bo.ucb.edu.ingsoft.dao.PublicationDao">
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Publication">
         INSERT into Publication VALUES
-        (null,#{idSeller},#{idSeller},#{idBrand},#{idColor},#{idCity},#{model},
-        #{doorNumber},#{description},#{motor},#{price},1,#{transaction.txDate},
+        (null,#{idSeller},#{idBrand},#{idColor},#{idCity},#{title},#{model},
+        #{doorNumber},#{licensePlate},#{description},#{motor},#{price},#{datePublication},1,#{transaction.txDate},
         #{transaction.txIduser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
     <select id="findByContactId" resultType="bo.ucb.edu.ingsoft.model.Publication">

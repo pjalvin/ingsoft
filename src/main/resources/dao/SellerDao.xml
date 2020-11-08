@@ -25,4 +25,21 @@
         tx_id_user=#{transaction.txIduser},tx_host=#{transaction.txHost},tx_update=#{transaction.txUpdate}
         WHERE id_seller=#{idSeller}
     </update>
+    <select id="publications" resultType="bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest">
+        SELECT
+               id_publication as idSeller,
+               image_path as imagePath,
+               titulo as titulo,
+               price as price
+        FROM publication
+        INNER JOIN seller on
+        publication.id_seller=seller.id_seller
+        INNER JOIN user on
+        seller.id_user=user.id_user
+        INNER JOIN image_publication
+        image_publication.id_publication=publication.id_publication
+        WHERE
+            user.id_user = #{idUsuario}
+        LIMIT 1;
+    </select>
 </mapper>

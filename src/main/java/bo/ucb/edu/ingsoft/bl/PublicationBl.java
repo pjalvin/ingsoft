@@ -8,6 +8,8 @@ import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class PublicationBl {
     private PublicationDao publicationDao;
@@ -28,14 +30,16 @@ public class PublicationBl {
         publication.setIdColor(publicationRequest.getIdColor());
         publication.setIdSeller(publicationRequest.getIdSeller());
         publication.setLicensePlate(publicationRequest.getLicensePlate());
+        publication.setTitle(publicationRequest.getTitle());
         publication.setModel(publicationRequest.getModel());
         publication.setMotor(publicationRequest.getMotor());
         publication.setModel(publicationRequest.getModel());
         publication.setPrice(publicationRequest.getPrice());
         publication.setStatus(publicationRequest.getStatus());
         publication.setTransaction(transaction);
+        publication.setDatePublication(new Date());
         publicationDao.create(publication);
-        int publicationId=transactionDao.getLastInsertId();
+        Integer publicationId=transactionDao.getLastInsertId();
         publicationRequest.setIdPublication(publicationId);
         return publicationRequest;
      }

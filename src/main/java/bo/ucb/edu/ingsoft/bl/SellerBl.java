@@ -10,6 +10,8 @@ import bo.ucb.edu.ingsoft.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SellerBl {
     private SellerDao sellerDao;
@@ -85,5 +87,9 @@ public class SellerBl {
         sellerDao.updateSeller(seller);
 
         return sellerRequest;
+    }
+    public List<PublicationRequest> publications(Integer idUsuario){
+        List<PublicationRequest> publications=sellerDao.publications(idUsuario);
+        return publications;
     }
 }

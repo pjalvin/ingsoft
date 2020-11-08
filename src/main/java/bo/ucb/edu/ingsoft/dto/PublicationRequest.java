@@ -1,13 +1,14 @@
 package bo.ucb.edu.ingsoft.dto;
 
 public class PublicationRequest {
-    private int idPublication;
-    private int idSeller;
-    private int idBrand;
-    private int idColor;
-    private int idCity;
-    private int model;
-    private int doorNumber;
+    private Integer idPublication;
+    private Integer idSeller;
+    private Integer idBrand;
+    private Integer idColor;
+    private Integer idCity;
+    private String title;
+    private Integer model;
+    private Integer doorNumber;
     private String licensePlate;
     private String description;
     private String motor;
@@ -17,59 +18,59 @@ public class PublicationRequest {
     public PublicationRequest() {
     }
 
-    public int getIdPublication() {
+    public Integer getIdPublication() {
         return idPublication;
     }
 
-    public void setIdPublication(int idPublication) {
+    public void setIdPublication(Integer idPublication) {
         this.idPublication = idPublication;
     }
 
-    public int getIdSeller() {
+    public Integer getIdSeller() {
         return idSeller;
     }
 
-    public void setIdSeller(int idSeller) {
+    public void setIdSeller(Integer idSeller) {
         this.idSeller = idSeller;
     }
 
-    public int getIdBrand() {
+    public Integer getIdBrand() {
         return idBrand;
     }
 
-    public void setIdBrand(int idBrand) {
+    public void setIdBrand(Integer idBrand) {
         this.idBrand = idBrand;
     }
 
-    public int getIdColor() {
+    public Integer getIdColor() {
         return idColor;
     }
 
-    public void setIdColor(int idColor) {
+    public void setIdColor(Integer idColor) {
         this.idColor = idColor;
     }
 
-    public int getIdCity() {
+    public Integer getIdCity() {
         return idCity;
     }
 
-    public void setIdCity(int idCity) {
+    public void setIdCity(Integer idCity) {
         this.idCity = idCity;
     }
 
-    public int getModel() {
+    public Integer getModel() {
         return model;
     }
 
-    public void setModel(int model) {
+    public void setModel(Integer model) {
         this.model = model;
     }
 
-    public int getDoorNumber() {
+    public Integer getDoorNumber() {
         return doorNumber;
     }
 
-    public void setDoorNumber(int doorNumber) {
+    public void setDoorNumber(Integer doorNumber) {
         this.doorNumber = doorNumber;
     }
 
@@ -113,6 +114,18 @@ public class PublicationRequest {
         this.status = status;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
     @Override
     public String toString() {
         return "PublicationRequest{" +
@@ -121,6 +134,7 @@ public class PublicationRequest {
                 ", idBrand=" + idBrand +
                 ", idColor=" + idColor +
                 ", idCity=" + idCity +
+                ", titulo='" + title + '\'' +
                 ", model=" + model +
                 ", doorNumber=" + doorNumber +
                 ", licensePlate='" + licensePlate + '\'' +

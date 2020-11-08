@@ -1,5 +1,6 @@
 package bo.ucb.edu.ingsoft.api;
 import bo.ucb.edu.ingsoft.bl.SellerBl;
+import bo.ucb.edu.ingsoft.dto.PublicationRequest;
 import bo.ucb.edu.ingsoft.dto.SellerRequest;
 import bo.ucb.edu.ingsoft.model.Seller;
 import bo.ucb.edu.ingsoft.model.Transaction;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/seller")
@@ -40,5 +42,11 @@ public class SellerApi {
         Transaction transaction = transactionUtil.createTransaction(request);
         sellerBl.update(sellerRequest,transaction);
         return sellerRequest;
+    }
+    @RequestMapping(path="/publications",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PublicationRequest> publications( HttpServletRequest request) {
+        Integer idUsuario=1;
+        List<PublicationRequest> publications=sellerBl.publications(idUsuario);
+        return publications;
     }
 }

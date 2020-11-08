@@ -25,12 +25,13 @@ public class PublicationApi {
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
+
     public Publication ViewListPublication(HttpServletRequest request){
         return publicationBl.findContacById();
     }
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public PublicationRequest create(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {
 
+    public PublicationRequest create(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
         publicationBl.create(publicationRequest,transaction);
