@@ -32,12 +32,12 @@ public class MechanicApi {
         this.mechanicBl = mechanicBl;
     }
 
-    /*
+
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public MechanicSimpleRequest mechanics(HttpServletRequest request){
         return mechanicBl.mechanics();
     }
-    */
+
 
     @RequestMapping(path = "/contact", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public MechanicContactRequest mechanicContact(HttpServletRequest request, @RequestParam Integer idMechanic){

@@ -145,7 +145,7 @@ delimiter ;
 -- Creacion de las publicaciones
 START TRANSACTION;
 INSERT INTO publication VALUES
-(null,1,1,1,1,'',2018,5,'4258BFG','','2000cc',25000.00,NOW(),1,NOW(),1,'172.0.0.1',NOW()),
+(null,1,1,1,1,'',2018,5,'4258BFG','','2000cc','25000.00',NOW(),1,NOW(),1,'172.0.0.1',NOW()),
 (null,2,5,2,5,'',2019,5,'4657PER','','1600cc','21000.00',NOW(),1,NOW(),1,'172.0.0.1',NOW()),
 (null,3,4,3,4,'',2002,3,'2365APO','Hermoso Vehiculo','2000cc','10000.00',NOW(),1,NOW(),1,'172.0.0.1',NOW()),
 (null,4,3,4,3,'',2008,5,'3056ASD','','4000cc','18000.00',NOW(),1,NOW(),1,'172.0.0.1',NOW()),
