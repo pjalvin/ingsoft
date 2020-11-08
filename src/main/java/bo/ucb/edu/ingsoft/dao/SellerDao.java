@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface SellerDao {
     public Seller findBySellerId(Integer sellerId);
-    public void create(Seller seller);
+    public void createSeller(Seller seller);
 
 
 }

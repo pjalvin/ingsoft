@@ -5,7 +5,7 @@ public class Seller {
     private Integer idPerson;
     private Integer idUser;
     private Integer status;
-    private String image_path;
+    private String imagePath;
     private Transaction transaction;
 
     public Seller() {
@@ -44,20 +44,20 @@ public class Seller {
         this.status = status;
     }
 
-    public String getImage_path() {
-        return image_path;
-    }
-
-    public void setImage_path(String image_path) {
-        this.image_path = image_path;
-    }
-
     public Transaction getTransaction() {
         return transaction;
     }
 
     public void setTransaction(Transaction transaction) {
         this.transaction = transaction;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     @Override
@@ -67,7 +67,7 @@ public class Seller {
                 ", idPerson=" + idPerson +
                 ", idUser=" + idUser +
                 ", status=" + status +
-                ", image_path='" + image_path + '\'' +
+                ", imagePath='" + imagePath + '\'' +
                 ", transaction=" + transaction +
                 '}';
     }

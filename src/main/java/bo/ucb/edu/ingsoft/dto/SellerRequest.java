@@ -1,6 +1,5 @@
 package bo.ucb.edu.ingsoft.dto;
 
-import bo.ucb.edu.ingsoft.model.Transaction;
 
 public class SellerRequest {
     private Integer  idSeller;
@@ -11,9 +10,7 @@ public class SellerRequest {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private Integer status;
-    private String image_path;
-    private Transaction transaction;
+    private String imagePath;
 
     public SellerRequest() {
     }
@@ -82,27 +79,26 @@ public class SellerRequest {
         this.phoneNumber = phoneNumber;
     }
 
-    public Integer getStatus() {
-        return status;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
-    public String getImage_path() {
-        return image_path;
-    }
-
-    public void setImage_path(String image_path) {
-        this.image_path = image_path;
-    }
-
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
+    @Override
+    public String toString() {
+        return "SellerRequest{" +
+                "idSeller=" + idSeller +
+                ", idPerson=" + idPerson +
+                ", idUser=" + idUser +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", imagePath='" + imagePath + '\'' +
+                '}';
     }
 }

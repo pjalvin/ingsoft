@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.PersonDao">
+    <select id="findPerson" resultType="bo.ucb.edu.ingsoft.model.Person">
+        SELECT
+               id_person as idPerson,
+               first_name as firstName,
+               last_name as lastName,
+               phone_number as phoneNumber
+        FROM person
+    </select>
+    <insert id="createPerson" parameterType="bo.ucb.edu.ingsoft.model.Person">
+        INSERT into person VALUES
+        (null,#{firstName},#{lastName},#{phoneNumber},1,#{transaction.txDate},
+        #{transaction.txIduser},#{transaction.txHost},#{transaction.txUpdate})
+    </insert>
+</mapper>

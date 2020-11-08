@@ -1,0 +1,17 @@
+GET http://localhost:8080/seller
+Accept: application/json
+
+###
+
+POST http://localhost:8080/seller
+Accept: application/json
+Content-Type: application/json
+
+{
+  "password": "12345",
+  "email": "456985",
+  "firstName": "Silvana Stephanie",
+  "lastName": "Munoz",
+  "phoneNumber": "456321",
+  "imagePath": "Hermoso auto con todas las prestaciones y confort"
+}

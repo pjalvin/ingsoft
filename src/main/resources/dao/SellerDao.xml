@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.ingsoft.dao.SellerDao">
-    <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Seller">
+    <insert id="createSeller" parameterType="bo.ucb.edu.ingsoft.model.Seller">
         INSERT into seller VALUES
         (null,#{idPerson},#{idUser},1,#{imagePath},#{transaction.txDate},
         #{transaction.txIduser},#{transaction.txHost},#{transaction.txUpdate})
@@ -12,8 +12,7 @@
         SELECT
                id_seller as idSeller,
                id_person as idPerson,
-               id_user as idUser,
-               status as status
+               id_user as idUser
         FROM seller
         WHERE
             id_seller = 2
