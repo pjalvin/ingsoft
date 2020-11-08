@@ -9,6 +9,6 @@ public interface PublicationDao {
     public void create(Publication publication);
     public Publication findByContactId();
 
-    public PublicationRequest PublicationSerch(String Buscar);
+    public PublicationRequest PublicationSerch(String buscar);
     public PublicationRequest searchPublication(PublicationRequest publicationRequest);
 }

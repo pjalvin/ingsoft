@@ -30,15 +30,11 @@ public class PublicationBl {
 
 
     public PublicationRequest Serchpublication(PublicationRequest publicationRequest){
-        //Publication publication=new Publication();
-        //publication.setIdPublication(publicationRequest.getIdPublication());
-        //Integer publicationId=transactionDao.getLastInsertId();
-        //publication.setIdPublication(publicationId);
         return publicationDao.searchPublication(publicationRequest);
     }
 
-    public PublicationRequest publicationBuscar(String Buscar){
-        return publicationDao.PublicationSerch(Buscar);
+    public PublicationRequest publicationBuscar(String buscar){
+        return publicationDao.PublicationSerch(buscar);
     }
 
      public PublicationRequest create(PublicationRequest publicationRequest, Transaction transaction){

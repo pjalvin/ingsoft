@@ -53,7 +53,7 @@
             status as status
         FROM publication
         WHERE
-            title = #{Buscar}
+            id_publication = #{buscar}
 
     </select>
 

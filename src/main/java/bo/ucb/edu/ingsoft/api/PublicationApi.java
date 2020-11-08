@@ -20,24 +20,15 @@ public class PublicationApi {
         this.publicationBl = publicationBl;
     }
 
-    /*
+
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public PublicationRequest SerchPublicatio(@RequestBody PublicationRequest publicationRequest){
         return publicationBl.Serchpublication(publicationRequest);
     }
-*/
 
-    /*
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE,
+    @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Publication ViewListPublication(HttpServletRequest request){
-        return publicationBl.findContacById();
-    }
-    */
-
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
-    public PublicationRequest ViewListPublication(@RequestBody String Buscar){
+    public PublicationRequest SearchPublication(@RequestBody String Buscar){
         return publicationBl.publicationBuscar(Buscar);
     }
 
