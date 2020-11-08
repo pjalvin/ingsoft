@@ -27,8 +27,8 @@ public class SellerBl {
         this.sellerDao = sellerDao;
     }
 
-    public Seller findSellerById(Integer sellerId) {
-        return  sellerDao.findBySellerId(sellerId);
+    public SellerRequest findSellerById(Integer sellerId) {
+        return  sellerDao.findBySellerId(1);
     }
 
     public SellerRequest create(SellerRequest sellerRequest, Transaction transaction){

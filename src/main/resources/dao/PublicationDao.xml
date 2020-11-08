@@ -10,7 +10,51 @@
         #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
     <select id="findByContactId" resultType="bo.ucb.edu.ingsoft.model.Publication">
-        SELECT * FROM Publication LIMIT 10 OFFSET 15
+        SELECT * FROM Publication LIMIT 5 OFFSET 1
+    </select>
+
+
+
+
+    <select id="searchPublication" resultType="bo.ucb.edu.ingsoft.dto.PublicationRequest">
+        SELECT
+            id_publication as idPublication,
+            id_seller as idSeller,
+            id_brand as idBrand,
+            id_color as idColor,
+            id_city as idCity,
+            title as title,
+            model as model,
+            door_number as doorNumber,
+            license_plate as licensePlate,
+            description as description,
+            motor as motor,
+            price as price,
+            status as status
+        FROM publication
+        WHERE
+            id_publication = #{idPublication}
+    </select>
+
+    <select id="PublicationSerch" resultType="bo.ucb.edu.ingsoft.dto.PublicationRequest">
+        SELECT
+            id_publication as idPublication,
+            id_seller as idSeller,
+            id_brand as idBrand,
+            id_color as idColor,
+            id_city as idCity,
+            title as title,
+            model as model,
+            door_number as doorNumber,
+            license_plate as licensePlate,
+            description as description,
+            motor as motor,
+            price as price,
+            status as status
+        FROM publication
+        WHERE
+            id_publication = #{buscar}
+
     </select>
     <insert id="createImagePublication" parameterType="java.util.List">
         INSERT INTO image_publication
@@ -26,4 +70,5 @@
             #{element.transaction.txUpdate}
         </foreach>
     </insert>
+
 </mapper>

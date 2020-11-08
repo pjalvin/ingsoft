@@ -27,6 +27,16 @@ public class PublicationBl {
         this.publicationDao = publicationDao;
         this.transactionDao = transactionDao;
     }
+
+
+    public PublicationRequest Serchpublication(PublicationRequest publicationRequest){
+        return publicationDao.searchPublication(publicationRequest);
+    }
+
+    public PublicationRequest publicationBuscar(String buscar){
+        return publicationDao.PublicationSerch(buscar);
+    }
+
      public PublicationRequest create(PublicationRequest publicationRequest, Transaction transaction){
 
         Publication publication=new Publication();

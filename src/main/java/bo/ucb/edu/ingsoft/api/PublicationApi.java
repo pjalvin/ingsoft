@@ -26,7 +26,16 @@ public class PublicationApi {
     public PublicationApi(PublicationBl publicationBl) {
         this.publicationBl = publicationBl;
     }
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public PublicationRequest SearchPublication(@RequestBody PublicationRequest publicationRequest){
+        return publicationBl.Serchpublication(publicationRequest);
+    }
 
+    @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public PublicationRequest SearchPublication(@RequestBody String Buscar){
+        return publicationBl.publicationBuscar(Buscar);
+    }
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
 

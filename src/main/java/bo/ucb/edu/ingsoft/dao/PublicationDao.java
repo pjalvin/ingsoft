@@ -1,6 +1,7 @@
 package bo.ucb.edu.ingsoft.dao;
 
 import bo.ucb.edu.ingsoft.model.ImagePublication;
+import bo.ucb.edu.ingsoft.dto.PublicationRequest;
 import bo.ucb.edu.ingsoft.model.Publication;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -11,4 +12,7 @@ public interface PublicationDao {
     public void create(Publication publication);
     public Publication findByContactId();
     public void createImagePublication(List<ImagePublication> imagePublications);
+
+    public PublicationRequest PublicationSearch(String buscar);
+    public PublicationRequest searchPublication(PublicationRequest publicationRequest);
 }
