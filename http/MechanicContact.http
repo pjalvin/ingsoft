@@ -1,4 +1,4 @@
-GET http://localhost:8080/mechanic
+GET http://localhost:8080/mechanic/contact
 Accept: application/json
 Content-Type: application/json
 

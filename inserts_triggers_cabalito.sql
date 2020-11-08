@@ -85,14 +85,12 @@ INSERT INTO seller VALUES
 (4,4,4,1,"https://cdn.pixabay.com/photo/2017/08/30/17/27/business-woman-2697954_960_720.jpg",now(),1,"192.168.10.1",now()),
 (5,5,5,1,"https://cdn.pixabay.com/photo/2016/11/29/03/36/beautiful-1867093_1280.jpg",now(),1,"192.168.10.1",now());
 
-INSERT INTO mechanic VALUES (1,6,1,'Av. 20 de Octubre','Fierro Veloz',0,0,1,NOW(),1,'192.168.10.215',NOW()),
+INSERT INTO mechanic VALUES
+(1,6,1,'Av. 20 de Octubre','Fierro Veloz',0,0,1,NOW(),1,'192.168.10.215',NOW()),
 (2,7,2,'Av. Alemana','Taller Iwanaga',0,0,1,NOW(),1,'192.168.10.215',NOW()),
 (3,8,3,'Av. Busch','Taller Brillante',0,0,1,NOW(),1,'192.168.10.215',NOW()),
 (4,9,4,'Av. Los Sargentos','Taller El Tuercas',0,0,1,NOW(),1,'192.168.10.215',NOW()),
 (5,10,5,'Av. Landaeta','Solo Autos',0,0,1,NOW(),1,'192.168.10.215',NOW());
-
-
-show triggers
 
 
 -- Creacion de marcas para la publicacion de los vehiculos
@@ -116,12 +114,16 @@ INSERT INTO color VALUES
 COMMIT;
 
 -- Creacion de triggers para las publicaciones
+
+drop trigger tg_update_h_publication;
+drop trigger tg_insert_h_publication;
+
 delimiter |
 CREATE TRIGGER tg_insert_h_publication AFTER INSERT ON publication
     FOR EACH ROW
     BEGIN
-        INSERT INTO h_publication VALUES (null,NEW.id_publication,NEW.id_seller,NEW.id_brand,NEW.id_color,NEW.id_city,
-        NEW.model,NEW.door_number,NEW.license_plate,NEW.description,NEW.motor,NEW.price,NEW.status,NEW.tx_date,
+        INSERT INTO h_publication VALUES (null,NEW.id_publication,NEW.id_seller,NEW.id_brand,NEW.id_color,NEW.id_city, NEW.title
+        ,NEW.model,NEW.door_number,NEW.license_plate,NEW.description,NEW.motor,NEW.price,NEW.date_publication,NEW.status,NEW.tx_date,
         NEW.tx_id_user,NEW.tx_host,NEW.tx_update);
     END;
 |
@@ -131,8 +133,8 @@ delimiter |
 CREATE TRIGGER tg_update_h_publication AFTER UPDATE ON publication
     FOR EACH ROW
     BEGIN
-        INSERT INTO h_publication VALUES (null, NEW.id_publication,NEW.id_seller,NEW.id_brand,NEW.id_color,NEW.id_city,
-        NEW.model,NEW.door_number,NEW.license_plate,NEW.description,NEW.motor,NEW.price,NEW.status,NEW.tx_date,
+        INSERT INTO h_publication VALUES (null, NEW.id_publication,NEW.id_seller,NEW.id_brand,NEW.id_color,NEW.id_city,NEW.title,
+        NEW.model,NEW.door_number,NEW.license_plate,NEW.description,NEW.motor,NEW.price,NEW.date_publication,NEW.status,NEW.tx_date,
         NEW.tx_id_user,NEW.tx_host,NEW.tx_update);
     END;
 |
@@ -144,11 +146,11 @@ delimiter ;
 -- Creacion de las publicaciones
 START TRANSACTION;
 INSERT INTO publication VALUES
-(null,1,1,1,1,'2018','5','4258BFG','','2000cc','25000.00',1,NOW(),1,'172.0.0.1',NOW()),
-(null,2,5,2,5,'2019','5','4657PER','','1600cc','21000.00',1,NOW(),1,'172.0.0.1',NOW()),
-(null,3,4,3,4,'2002','3','2365APO','Hermoso Vehiculo','2000cc','10000.00',1,NOW(),1,'172.0.0.1',NOW()),
-(null,4,3,4,3,'2008','5','3056ASD','','4000cc','18000.00',1,NOW(),1,'172.0.0.1',NOW()),
-(null,5,2,5,2,'2009','5','3898GHU','','5000cc','20000.00',1,NOW(),1,'172.0.0.1',NOW());
+(null,1,1,1,1,'',2018,5,'4258BFG','','2000cc',25000.00,NOW(),1,NOW(),1,'172.0.0.1',NOW()),
+(null,2,5,2,5,'',2019,5,'4657PER','','1600cc','21000.00',NOW(),1,NOW(),1,'172.0.0.1',NOW()),
+(null,3,4,3,4,'',2002,3,'2365APO','Hermoso Vehiculo','2000cc','10000.00',NOW(),1,NOW(),1,'172.0.0.1',NOW()),
+(null,4,3,4,3,'',2008,5,'3056ASD','','4000cc','18000.00',NOW(),1,NOW(),1,'172.0.0.1',NOW()),
+(null,5,2,5,2,'',2009,5,'3898GHU','','5000cc','20000.00',NOW(),1,NOW(),1,'172.0.0.1',NOW());
 COMMIT;
 
 
