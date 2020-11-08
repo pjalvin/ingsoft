@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.ingsoft.dao.PersonDao">
-    <select id="findPerson" resultType="bo.ucb.edu.ingsoft.model.Person">
+    <select id="findByPersonId" resultType="bo.ucb.edu.ingsoft.model.Person">
         SELECT
                id_person as idPerson,
                first_name as firstName,
