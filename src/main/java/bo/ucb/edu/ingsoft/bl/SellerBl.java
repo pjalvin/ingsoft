@@ -28,7 +28,7 @@ public class SellerBl {
     }
 
     public Seller findSellerById(Integer sellerId) {
-        return  sellerDao.findBySellerId(sellerId);
+        return  sellerDao.findBySellerId(1);
     }
 
     public SellerRequest create(SellerRequest sellerRequest, Transaction transaction){

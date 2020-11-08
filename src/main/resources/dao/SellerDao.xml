@@ -17,7 +17,7 @@
                image_path as imagePath
         FROM seller
         WHERE
-            id_seller = #{idSeller}
+            id_seller = 2
     </select>
     <update id="updateSeller" parameterType="bo.ucb.edu.ingsoft.model.Seller">
         UPDATE seller SET
