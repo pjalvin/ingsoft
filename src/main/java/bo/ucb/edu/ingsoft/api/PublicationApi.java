@@ -4,19 +4,23 @@ import bo.ucb.edu.ingsoft.bl.PublicationBl;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
 import bo.ucb.edu.ingsoft.model.Publication;
 import bo.ucb.edu.ingsoft.model.Transaction;
+import bo.ucb.edu.ingsoft.util.StorageUtil;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/publications")
 public class PublicationApi {
+    private static final Logger LOGGER = LoggerFactory.getLogger(MechanicApi.class);
     private  PublicationBl publicationBl;
     @Autowired
     public PublicationApi(PublicationBl publicationBl) {
@@ -36,5 +40,12 @@ public class PublicationApi {
         Transaction transaction = transactionUtil.createTransaction(request);
         publicationBl.create(publicationRequest,transaction);
         return publicationRequest;
+    }
+    @RequestMapping(path="images" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String uploadImages(@RequestParam MultipartFile[] images,@RequestParam Integer idPublication, HttpServletRequest request){
+        TransactionUtil transactionUtil=new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        publicationBl.uploadImages(images,idPublication,transaction);
+        return "Imagenes subidas correctamente";
     }
 }

@@ -1,16 +1,13 @@
 package bo.ucb.edu.ingsoft.model;
 
-public class Image {
+public class ImagePublication {
     private Integer IdImagePublication;
     private Integer IdPublication;
     private String path;
     private Integer Status;
+    private Transaction transaction;
 
-    public Image(Integer idImagePublication, Integer idPublication, String path, Integer status) {
-        IdImagePublication = idImagePublication;
-        IdPublication = idPublication;
-        this.path = path;
-        Status = status;
+    public ImagePublication() {
     }
 
     public Integer getIdImagePublication() {
@@ -45,6 +42,14 @@ public class Image {
         Status = status;
     }
 
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
+
     @Override
     public String toString() {
         return "Image{" +
@@ -52,6 +57,7 @@ public class Image {
                 ", IdPublication=" + IdPublication +
                 ", path='" + path + '\'' +
                 ", Status=" + Status +
+                ", transaction=" + transaction +
                 '}';
     }
 }

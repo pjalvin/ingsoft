@@ -3,12 +3,19 @@ package bo.ucb.edu.ingsoft.bl;
 import bo.ucb.edu.ingsoft.dao.PublicationDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
+import bo.ucb.edu.ingsoft.model.ImagePublication;
 import bo.ucb.edu.ingsoft.model.Publication;
 import bo.ucb.edu.ingsoft.model.Transaction;
+import bo.ucb.edu.ingsoft.util.StorageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class PublicationBl {
@@ -46,5 +53,19 @@ public class PublicationBl {
 
     public Publication findContacById() {
         return  publicationDao.findByContactId();
+    }
+    public void uploadImages(MultipartFile[] images,Integer idPublication,Transaction transaction){
+        List<ImagePublication> imagePublications=new ArrayList<>();
+        Arrays.asList(images).stream().forEach(image -> {
+            StorageUtil storageUtil= new StorageUtil();
+            String nombre=storageUtil.upload(image,"imagePublication");
+            ImagePublication imagePublication= new ImagePublication();
+            imagePublication.setPath(nombre);
+            imagePublication.setIdPublication(idPublication);
+            imagePublication.setTransaction(transaction);
+            imagePublications.add(imagePublication);
+        });
+        System.out.println(imagePublications.get(0).getPath());
+        publicationDao.createImagePublication(imagePublications);
     }
 }

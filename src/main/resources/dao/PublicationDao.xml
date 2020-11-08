@@ -7,9 +7,23 @@
         INSERT into Publication VALUES
         (null,#{idSeller},#{idBrand},#{idColor},#{idCity},#{title},#{model},
         #{doorNumber},#{licensePlate},#{description},#{motor},#{price},#{datePublication},1,#{transaction.txDate},
-        #{transaction.txIduser},#{transaction.txHost},#{transaction.txUpdate})
+        #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
     <select id="findByContactId" resultType="bo.ucb.edu.ingsoft.model.Publication">
         SELECT * FROM Publication LIMIT 10 OFFSET 15
     </select>
+    <insert id="createImagePublication" parameterType="java.util.List">
+        INSERT INTO image_publication
+        VALUES
+        <foreach collection="list" item="element" index="index" open="(" separator="),("  close=")">
+             null,
+            #{element.idPublication},
+             #{element.path},
+             true,
+            #{element.transaction.txDate},
+            #{element.transaction.txIdUser},
+            #{element.transaction.txHost},
+            #{element.transaction.txUpdate}
+        </foreach>
+    </insert>
 </mapper>

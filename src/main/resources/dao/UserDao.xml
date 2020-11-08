@@ -14,12 +14,12 @@
     <insert id="createUser" parameterType="bo.ucb.edu.ingsoft.model.User">
         INSERT into user VALUES
         (null,#{password},#{email},1,#{transaction.txDate},
-        #{transaction.txIduser},#{transaction.txHost},#{transaction.txUpdate})
+        #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
     <update id="updateUser" parameterType="bo.ucb.edu.ingsoft.model.User">
         UPDATE user SET
         id_user=#{idUser}, password=#{password},email=#{email},status=1,tx_date=#{transaction.txDate},
-        tx_id_user=#{transaction.txIduser},tx_host=#{transaction.txHost},tx_update=#{transaction.txUpdate}
+        tx_id_user=#{transaction.txIdUser},tx_host=#{transaction.txHost},tx_update=#{transaction.txUpdate}
         WHERE id_user=#{idUser}
     </update>
 </mapper>
