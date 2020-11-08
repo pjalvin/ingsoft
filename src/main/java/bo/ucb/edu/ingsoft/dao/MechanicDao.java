@@ -8,5 +8,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MechanicDao {
     public Mechanic mechanics();
 
-    public Mechanic mechanicContact();
+    public Mechanic mechanicContact(Integer idMechanic);
 }

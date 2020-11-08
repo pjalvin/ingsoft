@@ -3,12 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.ingsoft.dao.MechanicDao">
-    <select id="mechanics" resultType="bo.ucb.edu.ingsoft.model.Mechanic" resultMap="mechanicTypeMap">
+    <select id="mechanics" resultType="bo.ucb.edu.ingsoft.model.Mechanic">
         SELECT
                id_mechanic as idMechanic,
                location as location,
                shop_name as shopName,
                stars as stars
         FROM mechanic LIMIT 10 OFFSET 15
+    </select>
+    <select id="mechanicContact" resultType="bo.ucb.edu.ingsoft.model.Mechanic">
+        SELECT
+            shop_name as shopName,
+            shop_phone_number as shopPhoneNumber
+        FROM mechanic WHERE id_mechanic = #{idMechanic}
     </select>
 </mapper>

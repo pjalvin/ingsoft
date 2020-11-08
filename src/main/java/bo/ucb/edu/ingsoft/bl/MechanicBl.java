@@ -21,7 +21,7 @@ public class MechanicBl {
         return mechanicDao.mechanics();
     }
 
-    public Mechanic mechanicContact() {
-        return mechanicDao.mechanicContact();
+    public Mechanic mechanicContact(Integer idMechanic) {
+        return mechanicDao.mechanicContact(1);
     }
 }
