@@ -10,6 +10,8 @@
                last_name as lastName,
                phone_number as phoneNumber
         FROM person
+        WHERE
+            id_person = #{idPerson}
     </select>
     <insert id="createPerson" parameterType="bo.ucb.edu.ingsoft.model.Person">
         INSERT into person VALUES
@@ -18,7 +20,8 @@
     </insert>
     <update id="updatePerson" parameterType="bo.ucb.edu.ingsoft.model.Person">
         UPDATE person SET
-        first_name=#{firstName},last_name=#{lastName},phone_number=#{phoneNumber},1,tx_id_user=#{transaction.txUpdate}
+        id_person=#{idPerson}, first_name=#{firstName},last_name=#{lastName},phone_number=#{phoneNumber},status=1,tx_date=#{transaction.txDate},
+        tx_id_user=#{transaction.txIduser},tx_host=#{transaction.txHost},tx_update=#{transaction.txUpdate}
         WHERE id_person=#{idPerson}
     </update>
 </mapper>

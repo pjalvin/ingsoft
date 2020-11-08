@@ -1,5 +1,10 @@
 GET http://localhost:8080/seller
 Accept: application/json
+Content-Type: application/json
+
+{
+  "idSeller": 8
+}
 
 ###
 
@@ -14,4 +19,22 @@ Content-Type: application/json
   "lastName": "Munoz",
   "phoneNumber": "456321",
   "imagePath": "Hermoso auto con todas las prestaciones y confort"
+}
+
+###
+
+PUT http://localhost:8080/seller
+Accept: application/json
+Content-Type: application/json
+
+{
+  "idSeller": 1,
+  "idPerson": 1,
+  "idUser": 1,
+  "password": "456987",
+  "email": "jhf@gmail.com",
+  "firstName": "Silvana Stephanie",
+  "lastName": "Munoz",
+  "phoneNumber": "456321",
+  "imagePath": "hello.com"
 }

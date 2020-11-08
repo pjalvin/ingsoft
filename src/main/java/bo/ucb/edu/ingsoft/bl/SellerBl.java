@@ -41,7 +41,6 @@ public class SellerBl {
         person.setLastName(sellerRequest.getLastName());
         person.setPhoneNumber(sellerRequest.getPhoneNumber());
         person.setTransaction(transaction);
-
         userDao.createUser(user);
         int userId=transactionDao.getLastInsertId();
         personDao.createPerson(person);
@@ -56,6 +55,35 @@ public class SellerBl {
         sellerRequest.setIdUser(userId);
         sellerRequest.setIdPerson(personId);
         seller.setIdUser(sellerId);
+        return sellerRequest;
+    }
+    public SellerRequest update(SellerRequest sellerRequest, Transaction transaction){
+        Seller seller = new Seller();
+        Person person = new Person();
+        User user =new User();
+        user.setPassword(sellerRequest.getPassword());
+        user.setEmail(sellerRequest.getEmail());
+        user.setIdUser(sellerRequest.getIdUser());
+        user.setTransaction(transaction);
+
+        userDao.updateUser(user);
+
+        person.setFirstName(sellerRequest.getFirstName());
+        person.setLastName(sellerRequest.getLastName());
+        person.setPhoneNumber(sellerRequest.getPhoneNumber());
+        person.setIdPerson(sellerRequest.getIdPerson());
+        person.setTransaction(transaction);
+
+        personDao.updatePerson(person);
+
+        seller.setIdSeller(sellerRequest.getIdSeller());
+        seller.setIdUser(sellerRequest.getIdUser());
+        seller.setIdPerson(sellerRequest.getIdPerson());
+        seller.setImagePath(sellerRequest.getImagePath());
+        seller.setTransaction(transaction);
+
+        sellerDao.updateSeller(seller);
+
         return sellerRequest;
     }
 }

@@ -24,14 +24,21 @@ public class SellerApi {
         this.sellerBl = sellerBl;
     }
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Seller findById(HttpServletRequest request) {
-        return sellerBl.findSellerById(0);
+    public Seller findById(@RequestBody SellerRequest sellerRequest, HttpServletRequest request) {
+        return sellerBl.findSellerById(sellerRequest.getIdSeller());
     }
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public SellerRequest create(@RequestBody SellerRequest sellerRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
         sellerBl.create(sellerRequest,transaction);
+        return sellerRequest;
+    }
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public SellerRequest update(@RequestBody SellerRequest sellerRequest, HttpServletRequest request) {
+        TransactionUtil transactionUtil=new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        sellerBl.update(sellerRequest,transaction);
         return sellerRequest;
     }
 }

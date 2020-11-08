@@ -8,6 +8,8 @@
                id_user as idUser,
                email as email,
         FROM user
+        WHERE
+            id_user = #{idUser}
     </select>
     <insert id="createUser" parameterType="bo.ucb.edu.ingsoft.model.User">
         INSERT into user VALUES
@@ -16,7 +18,8 @@
     </insert>
     <update id="updateUser" parameterType="bo.ucb.edu.ingsoft.model.User">
         UPDATE user SET
-        password=#{password},email=#{email},status=1,tx_update=#{transaction.txUpdate}
+        id_user=#{idUser}, password=#{password},email=#{email},status=1,tx_date=#{transaction.txDate},
+        tx_id_user=#{transaction.txIduser},tx_host=#{transaction.txHost},tx_update=#{transaction.txUpdate}
         WHERE id_user=#{idUser}
     </update>
 </mapper>
