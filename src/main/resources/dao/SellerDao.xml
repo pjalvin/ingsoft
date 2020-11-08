@@ -8,16 +8,24 @@
         (null,#{idPerson},#{idUser},1,#{imagePath},#{transaction.txDate},
         #{transaction.txIduser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
-    <select id="findBySellerId" resultType="bo.ucb.edu.ingsoft.model.Seller">
+    <select id="findBySellerId" resultType="bo.ucb.edu.ingsoft.dto.SellerRequest">
         SELECT
-               id_seller as idSeller,
-               id_person as idPerson,
-               id_user as idUser,
-               status as status,
-               image_path as imagePath
-        FROM seller
+               s.id_seller as idSeller,
+               s.id_person as idPerson,
+               s.id_user as idUser,
+               u.password as password,
+               u.email as email,
+               p.first_name as firstName,
+               p.last_name as lastName,
+               p.phone_number as phoneNumber,
+               s.image_path as imagePath
+        FROM seller s
+        INNER JOIN user u on
+        s.id_user=u.id_user
+        INNER JOIN person p on
+        s.id_person=p.id_person
         WHERE
-            id_seller = 2
+            s.id_user = 2
     </select>
     <update id="updateSeller" parameterType="bo.ucb.edu.ingsoft.model.Seller">
         UPDATE seller SET
