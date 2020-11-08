@@ -1,7 +1,21 @@
-GET http://localhost:8080/seller
+GET http://localhost:8080/publications
 Accept: application/json
+Content-Type: application/json
+
+{
+  "Buscar": "Title 2"
+}
+###
+
+GET http://localhost:8080/publications
+Content-Type: application/json
+
+{
+  "idPublication": 7
+}
 
 ###
+
 
 POST http://localhost:8080/publications
 Accept: application/json
@@ -15,9 +29,10 @@ Content-Type: application/json
   "title": "Toyota Rav4 2014",
   "model": 2018,
   "doorNumber": 5,
-  "licensePlate": "4089ZPL",
+  "licensePlate": "4089ZPLP",
   "description": "Hermoso auto con todas las prestaciones y confort",
   "motor": "1600cc",
   "price": 15000.500
 }
 
+###

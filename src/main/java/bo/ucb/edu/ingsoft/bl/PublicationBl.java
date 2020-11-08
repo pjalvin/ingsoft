@@ -20,6 +20,27 @@ public class PublicationBl {
         this.publicationDao = publicationDao;
         this.transactionDao = transactionDao;
     }
+
+
+
+
+    public Publication findContacById() {
+        return  publicationDao.findByContactId();
+    }
+
+
+    public PublicationRequest Serchpublication(PublicationRequest publicationRequest){
+        //Publication publication=new Publication();
+        //publication.setIdPublication(publicationRequest.getIdPublication());
+        //Integer publicationId=transactionDao.getLastInsertId();
+        //publication.setIdPublication(publicationId);
+        return publicationDao.searchPublication(publicationRequest);
+    }
+
+    public PublicationRequest publicationBuscar(String Buscar){
+        return publicationDao.PublicationSerch(Buscar);
+    }
+
      public PublicationRequest create(PublicationRequest publicationRequest, Transaction transaction){
 
         Publication publication=new Publication();
@@ -44,7 +65,4 @@ public class PublicationBl {
         return publicationRequest;
      }
 
-    public Publication findContacById() {
-        return  publicationDao.findByContactId();
-    }
 }

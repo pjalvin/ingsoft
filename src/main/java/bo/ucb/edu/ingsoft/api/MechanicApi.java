@@ -29,10 +29,12 @@ public class MechanicApi {
         this.mechanicBl = mechanicBl;
     }
 
+    /*
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public Mechanic mechanics(HttpServletRequest request){
         return mechanicBl.mechanics();
     }
+    */
 
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public Mechanic mechanicContact(HttpServletRequest request){
