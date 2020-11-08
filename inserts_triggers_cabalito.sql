@@ -1,5 +1,4 @@
 -- End of file.
-drop trigger tg_update_h_person
 DELIMITER |
 CREATE TRIGGER tg_insert_h_person
 AFTER INSERT ON person
@@ -20,7 +19,7 @@ BEGIN
 |
 DELIMITER ;
 
-/*INSERT  INTO person VALUES
+INSERT  INTO person VALUES
 (1, "Juan","Martinez","7412586",0,now(),1,"192.168.10.1",now()),
 (2, "Jose","Poma","7612595",0,now(),1,"192.168.10.1",now()),
 (3, "Johana","Sanchez","7155986",0,now(),1,"192.168.10.1",now()),
@@ -30,7 +29,7 @@ DELIMITER ;
 (7, "Jose","Poma","7612595",0,now(),1,"192.168.10.1",now()),
 (8, "Johana","Sanchez","7155986",0,now(),1,"192.168.10.1",now()),
 (9, "Maria","Paredes","7523495",0,now(),1,"192.168.10.1",now()),
-(10, "Juana","Castro","7612586",0,now(),1,"192.168.10.1",now());*/
+(10, "Juana","Castro","7612586",0,now(),1,"192.168.10.1",now());
 
 DELIMITER |
 CREATE TRIGGER tg_insert_h_user
@@ -51,13 +50,13 @@ BEGIN
 END;
 |
 DELIMITER ;
-/*
+
 INSERT INTO user VALUES 
 (1, "12345","martinez@gmail.com",0,now(),1,"192.168.10.1",now()),
 (2, "852369","rodriguez@gmail.com",0,now(),1,"192.168.10.1",now()),
 (3, "945628","fernandez@gmail.com",0,now(),1,"192.168.10.1",now()),
 (4, "698574","sanchez@gmail.com",0,now(),1,"192.168.10.1",now()),
-(5, "732541","felipe@gmail.com",0,now(),1,"192.168.10.1",now());*/
+(5, "732541","felipe@gmail.com",0,now(),1,"192.168.10.1",now());
 
 DELIMITER |
 CREATE TRIGGER tg_insert_h_seller
@@ -78,7 +77,7 @@ BEGIN
 END;
 |
 DELIMITER ;
-/*
+
 INSERT INTO seller VALUES 
 (1,1,1,1,"https://cdn.pixabay.com/photo/2016/11/29/03/36/beautiful-1867093_1280.jpg",now(),1,"192.168.10.1",now()),
 (2,2,2,1,"https://cdn.pixabay.com/photo/2016/01/19/15/05/doctor-1149149_1280.jpg",now(),1,"192.168.10.1",now()),
@@ -93,9 +92,9 @@ INSERT INTO mechanic VALUES (1,6,1,'Av. 20 de Octubre','Fierro Veloz',0,0,1,NOW(
 (5,10,5,'Av. Landaeta','Solo Autos',0,0,1,NOW(),1,'192.168.10.215',NOW());
 
 
-show triggers*/
+show triggers
 
-/*
+
 -- Creacion de marcas para la publicacion de los vehiculos
 START TRANSACTION;
 INSERT INTO brand VALUES
@@ -114,7 +113,7 @@ INSERT INTO color VALUES
 (null,'Verde',1,NOW(),1,'172.0.0.1',NOW()),
 (null,'Amarillo',1,NOW(),1,'172.0.0.1',NOW()),
 (null,'Negro',1,NOW(),1,'172.0.0.1',NOW());
-COMMIT;*/
+COMMIT;
 
 -- Creacion de triggers para las publicaciones
 delimiter |
@@ -141,7 +140,7 @@ delimiter ;
 
 
 
-/*
+
 -- Creacion de las publicaciones
 START TRANSACTION;
 INSERT INTO publication VALUES
@@ -158,7 +157,7 @@ INSERT INTO city VALUES (NULL,'La Paz',1,NOW(),1,'192.168.10.215',NOW()),
 (NULL,'Cochabamba',1,NOW(),1,'192.168.10.215',NOW()),
 (NULL,'Santa Cruz',1,NOW(),1,'192.168.10.215',NOW()),
 (NULL,'Potosi',1,NOW(),1,'192.168.10.215',NOW()),
-(NULL,'Oruro',1,NOW(),1,'192.168.10.215',NOW());*/
+(NULL,'Oruro',1,NOW(),1,'192.168.10.215',NOW());
 
 DELIMITER |
 
@@ -166,8 +165,8 @@ CREATE TRIGGER tg_h_mechanic_insert
 AFTER INSERT ON mechanic
 FOR EACH ROW
 BEGIN
-	INSERT INTO h_mechanic (id_mechanic,id_person,id_city,location,shop_name,stars,stars_count,status,tx_date,tx_id_user,tx_host,tx_update) 
-    VALUES (NEW.id_mechanic,NEW.id_person,NEW.id_city,NEW.location,NEW.shop_name,NEW.stars,NEW.stars_count,NEW.status
+	INSERT INTO h_mechanic (id_mechanic,id_person,id_city,location,shop_name,shop_phone_number,stars,stars_count,status,tx_date,tx_id_user,tx_host,tx_update)
+    VALUES (NEW.id_mechanic,NEW.id_person,NEW.id_city,NEW.location,NEW.shop_name,NEW.shop_phone_number,NEW.stars,NEW.stars_count,NEW.status
     ,NEW.tx_date,NEW.tx_id_user,NEW.tx_host,NEW.tx_update);
 END;
 |
@@ -176,20 +175,20 @@ CREATE TRIGGER tg_h_mechanic_update
 AFTER UPDATE ON mechanic
 FOR EACH ROW
 BEGIN
-	INSERT INTO h_mechanic (id_mechanic,id_person,id_city,location,shop_name,stars,stars_count,status,tx_date,tx_id_user,tx_host,tx_update)
-    VALUES (NEW.id_mechanic,NEW.id_person,NEW.id_city,NEW.location,NEW.shop_name,NEW.stars,NEW.stars_count,NEW.status
+	INSERT INTO h_mechanic (id_mechanic,id_person,id_city,location,shop_name,shop_phone_number,stars,stars_count,status,tx_date,tx_id_user,tx_host,tx_update)
+    VALUES (NEW.id_mechanic,NEW.id_person,NEW.id_city,NEW.location,NEW.shop_name,NEW.shop_phone_number,NEW.stars,NEW.stars_count,NEW.status
     ,NEW.tx_date,NEW.tx_id_user,NEW.tx_host,NEW.tx_update);
 END;
 |
 
 DELIMITER ;
 
-/*
-INSERT INTO mechanic VALUES (NULL,6,1,'Av. 20 de Octubre','Fierro Veloz',0,0,1,NOW(),1,'192.168.10.215',NOW()),
-(NULL,7,2,'Av. Alemana','Taller Iwanaga',0,0,1,NOW(),1,'192.168.10.215',NOW()),
-(NULL,8,3,'Av. Busch','Taller Brillante',0,0,1,NOW(),1,'192.168.10.215',NOW()),
-(NULL,9,4,'Av. Los Sargentos','Taller El Tuercas',0,0,1,NOW(),1,'192.168.10.215',NOW()),
-(NULL,10,5,'Av. Landaeta','Solo Autos',0,0,1,NOW(),1,'192.168.10.215',NOW());*/
+
+INSERT INTO mechanic VALUES (NULL,6,1,'Av. 20 de Octubre','Fierro Veloz','22015478',0,0,1,NOW(),1,'192.168.10.215',NOW()),
+(NULL,7,2,'Av. Alemana','Taller Iwanaga','25634857',0,0,1,NOW(),1,'192.168.10.215',NOW()),
+(NULL,8,3,'Av. Busch','Taller Brillante','25639845',0,0,1,NOW(),1,'192.168.10.215',NOW()),
+(NULL,9,4,'Av. Los Sargentos','Taller El Tuercas','23561547',0,0,1,NOW(),1,'192.168.10.215',NOW()),
+(NULL,10,5,'Av. Landaeta','Solo Autos','22365894',0,0,1,NOW(),1,'192.168.10.215',NOW());
 
 
 

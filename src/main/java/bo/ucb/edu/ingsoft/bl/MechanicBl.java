@@ -17,7 +17,11 @@ public class MechanicBl {
         this.transactionDao = transactionDao;
     }
 
-    public Mechanic findMechanic(){
-        return mechanicDao.findMechanic();
+    public Mechanic mechanics(){
+        return mechanicDao.mechanics();
+    }
+
+    public Mechanic mechanicContact() {
+        return mechanicDao.mechanicContact();
     }
 }

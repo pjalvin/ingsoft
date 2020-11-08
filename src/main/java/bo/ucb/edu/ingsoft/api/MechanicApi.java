@@ -20,19 +20,22 @@ import java.awt.*;
 @RequestMapping(value = "/mechanic")
 public class MechanicApi {
     private MechanicBl mechanicBl;
-   // private TransactionUtil transactionUtil;
+    private TransactionUtil transactionUtil;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MechanicApi.class);
 
     @Autowired
-    public MechanicApi(MechanicBl mechanicBl){//, TransactionUtil transactionUtil) {
+    public MechanicApi(MechanicBl mechanicBl) {
         this.mechanicBl = mechanicBl;
-        //this.transactionUtil = transactionUtil;
     }
 
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public Mechanic findMechanic(HttpServletRequest request){
-        return mechanicBl.findMechanic();
+    public Mechanic mechanics(HttpServletRequest request){
+        return mechanicBl.mechanics();
     }
 
+    @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public Mechanic mechanicContact(HttpServletRequest request){
+        return mechanicBl.mechanicContact();
+    }
 }

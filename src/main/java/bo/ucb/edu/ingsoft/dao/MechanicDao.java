@@ -6,5 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface MechanicDao {
-    public Mechanic findMechanic();
+    public Mechanic mechanics();
+
+    public Mechanic mechanicContact();
 }

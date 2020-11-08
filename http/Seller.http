@@ -1,5 +1,10 @@
 GET http://localhost:8080/seller
 Accept: application/json
+Content-Type: application/json
+
+{
+  "idSeller": 8
+}
 
 ###
 
