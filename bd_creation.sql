@@ -1,3 +1,6 @@
+drop database cabalito_db;
+
+
 create database cabalito_db;
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2020-10-29 21:42:53.855
@@ -72,7 +75,6 @@ CREATE TABLE h_person (
     CONSTRAINT h_person_pk PRIMARY KEY (id_h_person)
 );
 
-drop table if exists  h_publication;
 -- Table: h_publication
 CREATE TABLE h_publication (
     id_h_publication int NOT NULL AUTO_INCREMENT,
@@ -169,8 +171,8 @@ CREATE TABLE person (
     tx_update datetime NOT NULL,
     CONSTRAINT person_pk PRIMARY KEY (id_person)
 );
-drop table if exists  publication;
 -- Table: publication
+
 CREATE TABLE publication (
     id_publication int NOT NULL AUTO_INCREMENT,
     id_seller int NOT NULL,
