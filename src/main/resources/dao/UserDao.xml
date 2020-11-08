@@ -14,4 +14,9 @@
         (null,#{password},#{email},1,#{transaction.txDate},
         #{transaction.txIduser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
+    <update id="updateUser" parameterType="bo.ucb.edu.ingsoft.model.User">
+        UPDATE user SET
+        password=#{password},email=#{email},status=1,tx_update=#{transaction.txUpdate}
+        WHERE id_user=#{idUser}
+    </update>
 </mapper>

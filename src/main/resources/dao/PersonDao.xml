@@ -16,4 +16,9 @@
         (null,#{firstName},#{lastName},#{phoneNumber},1,#{transaction.txDate},
         #{transaction.txIduser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
+    <update id="updatePerson" parameterType="bo.ucb.edu.ingsoft.model.Person">
+        UPDATE person SET
+        first_name=#{firstName},last_name=#{lastName},phone_number=#{phoneNumber},1,tx_id_user=#{transaction.txUpdate}
+        WHERE id_person=#{idPerson}
+    </update>
 </mapper>
