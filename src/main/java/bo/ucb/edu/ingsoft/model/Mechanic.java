@@ -6,13 +6,13 @@ public class Mechanic {
     private Integer idCity;
     private String location;
     private String shopName;
+    private String shopPhoneNumber;
     private Integer stars;
     private Integer starsCount;
     private Integer status;
     private Transaction transaction;
 
-    public Mechanic(Transaction transaction) {
-        this.transaction = transaction;
+    public Mechanic() {
     }
 
     public Integer getIdMechanic() {
@@ -55,6 +55,14 @@ public class Mechanic {
         this.shopName = shopName;
     }
 
+    public String getShopPhoneNumber() {
+        return shopPhoneNumber;
+    }
+
+    public void setShopPhoneNumber(String shopPhoneNumber) {
+        this.shopPhoneNumber = shopPhoneNumber;
+    }
+
     public Integer getStars() {
         return stars;
     }
@@ -88,14 +96,14 @@ public class Mechanic {
     }
 
     @Override
-    public String
-    toString() {
+    public String toString() {
         return "Mechanic{" +
                 "idMechanic=" + idMechanic +
                 ", idPerson=" + idPerson +
                 ", idCity=" + idCity +
                 ", location='" + location + '\'' +
                 ", shopName='" + shopName + '\'' +
+                ", shopPhoneNumber='" + shopPhoneNumber + '\'' +
                 ", stars=" + stars +
                 ", starsCount=" + starsCount +
                 ", status=" + status +

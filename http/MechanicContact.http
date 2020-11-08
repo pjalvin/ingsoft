@@ -1,7 +1,0 @@
-GET http://localhost:8080/mechanic
-Accept: application/json
-Content-Type: application/json
-
-{
-  "idMechanic": 1
-}

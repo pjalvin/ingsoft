@@ -2,6 +2,8 @@ package bo.ucb.edu.ingsoft.api;
 
 
 import bo.ucb.edu.ingsoft.bl.MechanicBl;
+import bo.ucb.edu.ingsoft.dto.MechanicContactRequest;
+import bo.ucb.edu.ingsoft.dto.MechanicSimpleRequest;
 import bo.ucb.edu.ingsoft.model.Mechanic;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import com.sun.net.httpserver.HttpServer;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,13 +32,13 @@ public class MechanicApi {
         this.mechanicBl = mechanicBl;
     }
 
-    /*@RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public Mechanic mechanics(HttpServletRequest request){
-        return mechanicBl.mechanics();
-    }*/
-
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public Mechanic mechanicContact(HttpServletRequest request){
-        return mechanicBl.mechanicContact(0);
+    public MechanicSimpleRequest mechanics(HttpServletRequest request){
+        return mechanicBl.mechanics();
+    }
+
+    @RequestMapping(path = "/contact",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public MechanicContactRequest mechanicContact(HttpServletRequest request, @RequestParam Integer idMechanic){
+        return mechanicBl.mechanicContact(idMechanic);
     }
 }
