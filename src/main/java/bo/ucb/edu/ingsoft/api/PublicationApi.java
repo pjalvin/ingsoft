@@ -37,6 +37,9 @@ public class PublicationApi {
         return publicationBl.publicationBuscar(Buscar);
     }
 
+    public Publication ViewListPublication(HttpServletRequest request){
+        return null;
+    }
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 
     public PublicationRequest create(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {

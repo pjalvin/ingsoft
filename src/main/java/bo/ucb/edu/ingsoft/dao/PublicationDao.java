@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface PublicationDao {
     public void create(Publication publication);
-    public Publication findByContactId();
+    public void update(Publication publication);
     public void createImagePublication(List<ImagePublication> imagePublications);
 
     public PublicationRequest PublicationSearch(String buscar);
