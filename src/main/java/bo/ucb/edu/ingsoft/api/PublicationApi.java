@@ -64,4 +64,12 @@ public class PublicationApi {
         publicationBl.delete(idPublication,transaction);
         return "Publicacion eliminada";
     }
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public PublicationRequest update(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {
+        TransactionUtil transactionUtil=new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        publicationBl.create(publicationRequest,transaction);
+        publicationBl.update(publicationRequest,transaction);
+        return publicationRequest;
+    }
 }
