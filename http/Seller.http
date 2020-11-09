@@ -33,3 +33,6 @@ Content-Type: application/json
   "phoneNumber": "456321",
   "imagePath": "hello.com"
 }
+###
+GET http://localhost:8080/seller/publications
+Accept: application/json

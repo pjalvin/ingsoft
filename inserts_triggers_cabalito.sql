@@ -64,7 +64,6 @@ INSERT INTO user VALUES
 (3, "945628","fernandez@gmail.com",0,now(),1,"192.168.10.1",now()),
 (4, "698574","sanchez@gmail.com",0,now(),1,"192.168.10.1",now()),
 (5, "732541","felipe@gmail.com",0,now(),1,"192.168.10.1",now());
-
 DELIMITER |
 CREATE TRIGGER tg_insert_h_seller
 AFTER INSERT ON seller

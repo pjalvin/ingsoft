@@ -34,26 +34,22 @@
         WHERE id_seller=#{idSeller}
     </update>
     <resultMap type="bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest" id="publicationsMap">
-        <result column="idSeller" property="idSeller"/>
+        <result column="idPublication" property="idPublication"/>
         <result column="imagePath" property="imagePath"/>
-        <result column="titulo" property="titulo"/>
+        <result column="title" property="title"/>
         <result column="price" property="price"/>
     </resultMap>
     <select id="publications" resultMap="publicationsMap">
         SELECT
-               id_publication as idSeller,
-               image_path as imagePath,
-               titulo as titulo,
+               publication.id_publication as idPublication,
+               image_publication.path as imagePath,
+               title as title,
                price as price
         FROM publication
-        INNER JOIN seller on
-        publication.id_seller=seller.id_seller
-        INNER JOIN user on
-        seller.id_user=user.id_user
-        INNER JOIN image_publication
+        INNER JOIN image_publication on
         image_publication.id_publication=publication.id_publication
         WHERE
-            user.id_user = #{idUsuario}
+            id_seller =#{idSeller}
         LIMIT 1;
     </select>
 </mapper>

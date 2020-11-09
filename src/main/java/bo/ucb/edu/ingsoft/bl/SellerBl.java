@@ -88,8 +88,8 @@ public class SellerBl {
 
         return sellerRequest;
     }
-    public List<PublicationRequest> publications(Integer idUsuario){
-        List<PublicationRequest> publications=sellerDao.publications(idUsuario);
+    public List<PublicationRequest> publications(Integer idSeller){
+        List<PublicationRequest> publications=sellerDao.publications(idSeller);
         return publications;
     }
 }

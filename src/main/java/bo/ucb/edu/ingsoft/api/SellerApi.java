@@ -55,8 +55,8 @@ public class SellerApi {
 
     @RequestMapping(path="/publications",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<PublicationRequest> publications( HttpServletRequest request) {
-        Integer idUsuario=1;
-        List<PublicationRequest> publications=sellerBl.publications(idUsuario);
+        Integer idSeller=1;
+        List<PublicationRequest> publications=sellerBl.publications(idSeller);
         return publications;
     }
 

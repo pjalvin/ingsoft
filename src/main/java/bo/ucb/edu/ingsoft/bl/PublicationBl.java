@@ -34,7 +34,7 @@ public class PublicationBl {
     }
 
     public PublicationRequest publicationBuscar(String buscar){
-        return publicationDao.PublicationSerch(buscar);
+        return publicationDao.PublicationSearch(buscar);
     }
 
      public PublicationRequest create(PublicationRequest publicationRequest, Transaction transaction){
