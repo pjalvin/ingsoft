@@ -18,8 +18,6 @@ public interface PublicationDao {
 
     public List<PublicationSimpleRequest> publications1(PublicationRequest publicationRequest, Integer i, Integer n);
 
-    public PublicationRequest PublicationSearch(String buscar);
-
     public List<PublicationSimpleRequest> publications(Integer pagi);
 
 }

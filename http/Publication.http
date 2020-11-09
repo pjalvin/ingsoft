@@ -1,8 +1,3 @@
-GET http://localhost:8080/publications/search?Buscar=2018
-Content-Type: application/json
-
-###
-
 GET http://localhost:8080/publications/?n=5&i=0&idColor=4
 Accept: application/json
 Content-Type: application/json

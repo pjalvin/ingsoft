@@ -42,9 +42,6 @@ public class PublicationBl {
         return publicationDao.publications1(publicationRequest,i,n);
     }
 
-    public PublicationRequest publicationSearch(String buscar){
-        return publicationDao.PublicationSearch(buscar);
-    }
 
      public PublicationRequest create(PublicationRequest publicationRequest, Transaction transaction){
 

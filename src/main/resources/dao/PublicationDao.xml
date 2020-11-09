@@ -63,29 +63,6 @@
             id_publication = #{idPublication}
     </select>
 
-
-
-    <select id="PublicationSearch" resultType="bo.ucb.edu.ingsoft.dto.PublicationRequest">
-        SELECT
-            id_publication as idPublication,
-            id_seller as idSeller,
-            id_brand as idBrand,
-            id_color as idColor,
-            id_city as idCity,
-            title as title,
-            model as model,
-            door_number as doorNumber,
-            license_plate as licensePlate,
-            description as description,
-            motor as motor,
-            price as price,
-            status as status
-        FROM publication
-        WHERE
-            title LIKE #{%buscar%} OR model LIKE #{%buscar%} OR license_plate LIKE #{%buscar%}
-        LIMIT 1
-
-    </select>
     <insert id="createImagePublication" parameterType="java.util.List">
         INSERT INTO image_publication
         VALUES
