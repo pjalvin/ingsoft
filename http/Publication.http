@@ -3,13 +3,10 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/publications
+GET http://localhost:8080/publications/?n=5&i=0&idColor=4
 Accept: application/json
 Content-Type: application/json
 
-{
-  "idPublication": 1
-}
 
 ###
 
@@ -52,11 +49,6 @@ Content-Type: application/json
   "motor": "1600cc",
   "price": 15000.500
 }
-
-###
-
-GET http://localhost:8080/publications/list
-Content-Type: application/json
 
 ###
 

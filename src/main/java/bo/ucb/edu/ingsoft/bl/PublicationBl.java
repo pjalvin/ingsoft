@@ -30,8 +30,16 @@ public class PublicationBl {
     }
 
 
-    public PublicationRequest Searchpublication1(PublicationRequest publicationRequest){
-        return publicationDao.searchPublication(publicationRequest);
+    public List<PublicationSimpleRequest> publications1(Integer idPublication, Integer i, Integer n, Integer idColor, Integer model, Integer idBrand, Integer doorNumber,Integer idCity){
+        PublicationRequest publicationRequest=new PublicationRequest();
+        publicationRequest.setIdPublication(idPublication);
+        publicationRequest.setIdColor(idColor);
+        publicationRequest.setModel(model);
+        publicationRequest.setIdBrand(idBrand);
+        publicationRequest.setDoorNumber(doorNumber);
+        publicationRequest.setIdCity(idCity);
+
+        return publicationDao.publications1(publicationRequest,i,n);
     }
 
     public PublicationRequest publicationSearch(String buscar){
@@ -106,10 +114,11 @@ public class PublicationBl {
     }
 
 
-    public List<PublicationSimpleRequest> ListPublicationss(Integer idPublication) {
-        List<PublicationSimpleRequest> publications=publicationDao.publications(idPublication);
+    public List<PublicationSimpleRequest> Publicationss(Integer pagi) {
+        List<PublicationSimpleRequest> publications=publicationDao.publications(pagi);
         return publications;
-
     }
+
+
 
 }

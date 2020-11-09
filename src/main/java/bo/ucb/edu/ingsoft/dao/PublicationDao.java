@@ -16,10 +16,10 @@ public interface PublicationDao {
     public void delete(Publication publication);
     public void createImagePublication(List<ImagePublication> imagePublications);
 
-    public PublicationRequest searchPublication(PublicationRequest publicationRequest);
+    public List<PublicationSimpleRequest> publications1(PublicationRequest publicationRequest, Integer i, Integer n);
 
     public PublicationRequest PublicationSearch(String buscar);
 
-    public List<PublicationSimpleRequest> publications(Integer idPublication);
+    public List<PublicationSimpleRequest> publications(Integer pagi);
 
 }

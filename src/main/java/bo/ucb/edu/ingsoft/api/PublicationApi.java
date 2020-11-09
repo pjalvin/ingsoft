@@ -27,8 +27,15 @@ public class PublicationApi {
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public PublicationRequest SearchPublication1(@RequestBody PublicationRequest publicationRequest){
-        return publicationBl.Searchpublication1(publicationRequest);
+    public List<PublicationSimpleRequest> SearchPublication1(@RequestParam(required = false) Integer idPublication,
+                                                             @RequestParam(required = true) Integer i,
+                                                             @RequestParam(required = true) Integer n,
+                                                             @RequestParam(required = false) Integer idColor,
+                                                             @RequestParam(required = false) Integer model,
+                                                             @RequestParam(required = false) Integer idBrand,
+                                                             @RequestParam(required = false) Integer doorNumber,
+                                                             @RequestParam(required = false) Integer idCity){
+        return publicationBl.publications1(idPublication,i,n,idColor,model,idBrand,doorNumber,idCity);
     }
 
 
@@ -38,10 +45,9 @@ public class PublicationApi {
         return publicationBl.publicationSearch(Buscar);
     }
 
-    @RequestMapping(path="/list",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<PublicationSimpleRequest> publications(HttpServletRequest request) {
-        Integer idPublication=1;
-        List<PublicationSimpleRequest> publications=publicationBl.ListPublicationss(idPublication);
+    @RequestMapping(path="/pagination",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PublicationSimpleRequest> publications(Integer pagi) {
+        List<PublicationSimpleRequest> publications=publicationBl.Publicationss(pagi);
         return publications;
     }
 

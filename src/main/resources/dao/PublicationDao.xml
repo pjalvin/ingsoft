@@ -42,10 +42,6 @@
 
 
 
-    <select id="ListPublication" resultType="bo.ucb.edu.ingsoft.model.Publication">
-        SELECT id_seller as idSeller
-         FROM Publication LIMIT 5 OFFSET 1
-    </select>
 
     <select id="searchPublication" resultType="bo.ucb.edu.ingsoft.dto.PublicationRequest">
         SELECT
@@ -111,7 +107,7 @@
         <result column="title" property="title"/>
         <result column="price" property="price"/>
     </resultMap>
-    <select id="publications" resultMap="publicationsMap">
+    <select id="publications1" resultMap="publicationsMap">
         SELECT
                publication.id_publication as idPublication,
                image_publication.path as imagePath,
@@ -123,10 +119,34 @@
         INNER JOIN seller on
         seller.id_seller=publication.id_seller
         WHERE
+
             image_publication.status=1
             and publication.status=1
             and seller.status=1
-        GROUP BY publication.id_publication;
+            <if test="publicationRequest.idColor!=null and publicationRequest.idPublication==null">
+                AND publication.id_color=#{publicationRequest.idColor}
+            </if>
+            <if test="publicationRequest.idCity!=null and publicationRequest.idPublication==null">
+                AND publication.id_city=#{publicationRequest.idCity}
+            </if>
+            <if test="publicationRequest.idBrand!=null and publicationRequest.idPublication==null">
+                AND publication.id_brand=#{publicationRequest.idBrand}
+            </if>
+            <if test="publicationRequest.model!=null and publicationRequest.idPublication==null">
+                AND publication.model=#{publicationRequest.model}
+            </if>
+            <if test="publicationRequest.doorNumber!=null and publicationRequest.idPublication==null">
+                AND publication.door_number=#{publicationRequest.doorNumber}
+            </if>
+            <if test="publicationRequest.idPublication!=null">
+                AND publication.id_publication=#{publicationRequest.idPublication}
+            </if>
+        GROUP BY publication.id_publication
+        <if test="publicationRequest.idPublication==null">
+            LIMIT #{n} OFFSET #{i}
+        </if>
+
     </select>
+
 
 </mapper>
