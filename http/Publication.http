@@ -1,4 +1,4 @@
-PATCH http://localhost:8080/publications/?Buscar=Title 3
+PATCH http://localhost:8080/publications/?Buscar=Title 2
 Content-Type: application/json
 
 ###

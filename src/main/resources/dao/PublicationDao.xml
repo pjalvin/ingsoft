@@ -36,7 +36,7 @@
             id_publication = #{idPublication}
     </select>
 
-    <select id="PublicationSerch" resultType="bo.ucb.edu.ingsoft.dto.PublicationRequest">
+    <select id="PublicationSearch" resultType="bo.ucb.edu.ingsoft.dto.PublicationRequest">
         SELECT
             id_publication as idPublication,
             id_seller as idSeller,

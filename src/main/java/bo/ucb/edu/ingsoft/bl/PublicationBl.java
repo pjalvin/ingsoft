@@ -29,7 +29,7 @@ public class PublicationBl {
     }
 
 
-    public PublicationRequest Serchpublication(PublicationRequest publicationRequest){
+    public PublicationRequest Searchpublication(PublicationRequest publicationRequest){
         return publicationDao.searchPublication(publicationRequest);
     }
 

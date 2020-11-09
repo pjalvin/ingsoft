@@ -28,7 +28,7 @@ public class PublicationApi {
     }
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public PublicationRequest SearchPublication(@RequestBody PublicationRequest publicationRequest){
-        return publicationBl.Serchpublication(publicationRequest);
+        return publicationBl.Searchpublication(publicationRequest);
     }
 
     @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
@@ -36,12 +36,7 @@ public class PublicationApi {
     public PublicationRequest SearchPublication(@RequestParam String Buscar){
         return publicationBl.publicationBuscar(Buscar);
     }
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
 
-    public Publication ViewListPublication(HttpServletRequest request){
-        return publicationBl.findContacById();
-    }
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 
     public PublicationRequest create(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {
