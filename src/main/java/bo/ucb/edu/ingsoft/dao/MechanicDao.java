@@ -10,6 +10,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MechanicDao {
 
     public MechanicSimpleRequest mechanics();
-
     public MechanicContactRequest mechanicContact(Integer idMechanic);
 }

@@ -26,6 +26,33 @@ BEGIN
 |
 DELIMITER ;
 
+drop trigger if exists tg_insert_h_person;
+drop trigger if exists tg_update_h_person;
+drop trigger if exists tg_insert_h_user;
+drop trigger if exists tg_update_h_user;
+drop trigger if exists tg_insert_h_seller;
+drop trigger if exists tg_update_h_seller;
+
+DELIMITER |
+CREATE TRIGGER tg_insert_h_person
+AFTER INSERT ON person
+FOR EACH ROW
+BEGIN
+	INSERT INTO `h_person`(`id_person`,`first_name`,`last_name`,`phone_number`,`status`,`tx_date`,`tx_id_user`,`tx_host`,`tx_update`) VALUES ( NEW.id_person,NEW.first_name,NEW.last_name,NEW.phone_number,NEW.status, NEW.tx_date,NEW.tx_id_user,NEW.tx_host,NEW.tx_update);
+END;
+|
+DELIMITER ;
+
+DELIMITER |
+CREATE TRIGGER tg_update_h_person
+AFTER UPDATE ON person
+FOR EACH ROW
+BEGIN
+	INSERT INTO `h_person`(`id_person`,`first_name`,`last_name`,`phone_number`,`status`,`tx_date`,`tx_id_user`,`tx_host`,`tx_update`) VALUES (NEW.id_person,NEW.first_name,NEW.last_name,NEW.phone_number,NEW.status, NEW.tx_date,NEW.tx_id_user,NEW.tx_host,NEW.tx_update);
+    END;
+|
+DELIMITER ;
+
 INSERT  INTO person VALUES
 (1, "Juan","Martinez","7412586",0,now(),1,"192.168.10.1",now()),
 (2, "Jose","Poma","7612595",0,now(),1,"192.168.10.1",now()),

@@ -33,7 +33,7 @@ public class PublicationApi {
 
     @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public PublicationRequest SearchPublication(@RequestBody String Buscar){
+    public PublicationRequest SearchPublication(@RequestParam String Buscar){
         return publicationBl.publicationBuscar(Buscar);
     }
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE,

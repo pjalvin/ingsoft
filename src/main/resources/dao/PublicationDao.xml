@@ -53,7 +53,7 @@
             status as status
         FROM publication
         WHERE
-            id_publication = #{buscar}
+            title LIKE #{%buscar%} OR model LIKE #{%buscar%} OR license_plate LIKE #{%buscar%}
 
     </select>
     <insert id="createImagePublication" parameterType="java.util.List">
