@@ -33,6 +33,11 @@
         tx_id_user=#{transaction.txIdUser},tx_host=#{transaction.txHost},tx_update=#{transaction.txUpdate}
         WHERE id_seller=#{idSeller}
     </update>
+    <update id="updateImage" parameterType="bo.ucb.edu.ingsoft.model.Seller">
+        UPDATE seller SET
+        image_path=#{imagePath}
+        WHERE id_seller=#{idSeller}
+    </update>
     <resultMap type="bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest" id="publicationsMap">
         <result column="idPublication" property="idPublication"/>
         <result column="imagePath" property="imagePath"/>

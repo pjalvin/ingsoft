@@ -26,17 +26,6 @@ BEGIN
 |
 DELIMITER ;
 
-INSERT  INTO person VALUES
-(1, "Juan","Martinez","7412586",0,now(),1,"192.168.10.1",now()),
-(2, "Jose","Poma","7612595",0,now(),1,"192.168.10.1",now()),
-(3, "Johana","Sanchez","7155986",0,now(),1,"192.168.10.1",now()),
-(4, "Maria","Paredes","7523495",0,now(),1,"192.168.10.1",now()),
-(5, "Juana","Castro","7612586",0,now(),1,"192.168.10.1",now()),
-(6, "Juan","Martinez","7412586",0,now(),1,"192.168.10.1",now()),
-(7, "Jose","Poma","7612595",0,now(),1,"192.168.10.1",now()),
-(8, "Johana","Sanchez","7155986",0,now(),1,"192.168.10.1",now()),
-(9, "Maria","Paredes","7523495",0,now(),1,"192.168.10.1",now()),
-(10, "Juana","Castro","7612586",0,now(),1,"192.168.10.1",now());
 
 DELIMITER |
 CREATE TRIGGER tg_insert_h_user
@@ -58,12 +47,6 @@ END;
 |
 DELIMITER ;
 
-INSERT INTO user VALUES 
-(1, "12345","martinez@gmail.com",0,now(),1,"192.168.10.1",now()),
-(2, "852369","rodriguez@gmail.com",0,now(),1,"192.168.10.1",now()),
-(3, "945628","fernandez@gmail.com",0,now(),1,"192.168.10.1",now()),
-(4, "698574","sanchez@gmail.com",0,now(),1,"192.168.10.1",now()),
-(5, "732541","felipe@gmail.com",0,now(),1,"192.168.10.1",now());
 DELIMITER |
 CREATE TRIGGER tg_insert_h_seller
 AFTER INSERT ON seller
@@ -91,6 +74,24 @@ INSERT INTO seller VALUES
 (4,4,4,1,"https://cdn.pixabay.com/photo/2017/08/30/17/27/business-woman-2697954_960_720.jpg",now(),1,"192.168.10.1",now()),
 (5,5,5,1,"https://cdn.pixabay.com/photo/2016/11/29/03/36/beautiful-1867093_1280.jpg",now(),1,"192.168.10.1",now());
 
+INSERT INTO user VALUES
+(1, "12345","martinez@gmail.com",1,now(),1,"192.168.10.1",now()),
+(2, "852369","rodriguez@gmail.com",1,now(),1,"192.168.10.1",now()),
+(3, "945628","fernandez@gmail.com",1,now(),1,"192.168.10.1",now()),
+(4, "698574","sanchez@gmail.com",1,now(),1,"192.168.10.1",now()),
+(5, "732541","felipe@gmail.com",1,now(),1,"192.168.10.1",now());
+
+INSERT  INTO person VALUES
+(1, "Juan","Martinez","7412586",1,now(),1,"192.168.10.1",now()),
+(2, "Jose","Poma","7612595",1,now(),1,"192.168.10.1",now()),
+(3, "Johana","Sanchez","7155986",1,now(),1,"192.168.10.1",now()),
+(4, "Maria","Paredes","7523495",1,now(),1,"192.168.10.1",now()),
+(5, "Juana","Castro","7612586",1,now(),1,"192.168.10.1",now()),
+(6, "Juan","Martinez","7412586",1,now(),1,"192.168.10.1",now()),
+(7, "Jose","Poma","7612595",1,now(),1,"192.168.10.1",now()),
+(8, "Johana","Sanchez","7155986",1,now(),1,"192.168.10.1",now()),
+(9, "Maria","Paredes","7523495",1,now(),1,"192.168.10.1",now()),
+(10, "Juana","Castro","7612586",1,now(),1,"192.168.10.1",now());
 -- Creacion de marcas para la publicacion de los vehiculos
 START TRANSACTION;
 INSERT INTO brand VALUES

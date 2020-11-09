@@ -10,10 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -46,12 +45,12 @@ public class SellerApi {
         return sellerRequest;
     }
 
-    @RequestMapping(path="/seller/image",method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE)
-    public SellerRequest updateImage(@RequestBody SellerRequest sellerRequest, HttpServletRequest request) {
+    @RequestMapping(path="seller/image",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String uploadImages(@RequestParam MultipartFile images, @RequestParam Integer idSeller, HttpServletRequest request){
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
-        sellerBl.update(sellerRequest,transaction);
-        return sellerRequest;
+        sellerBl.uploadImages(images,idSeller,transaction);
+        return "Imagenes subidas correctamente";
     }
 
     @RequestMapping(path="/publications",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
