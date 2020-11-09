@@ -28,7 +28,7 @@ public class PublicationApi {
     }
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public PublicationRequest SearchPublication(@RequestBody PublicationRequest publicationRequest){
-        return publicationBl.Serchpublication(publicationRequest);
+        return publicationBl.Searchpublication(publicationRequest);
     }
 
     @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
@@ -57,11 +57,11 @@ public class PublicationApi {
         publicationBl.uploadImages(images,idPublication,transaction);
         return "Imagenes subidas correctamente";
     }
-    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public PublicationRequest update(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {
+    @RequestMapping(method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String delete(@RequestParam Integer idPublication, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
-        publicationBl.update(publicationRequest,transaction);
-        return publicationRequest;
+        publicationBl.delete(idPublication,transaction);
+        return "Publicacion eliminada";
     }
 }
