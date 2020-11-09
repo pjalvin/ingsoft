@@ -224,6 +224,21 @@ CREATE TABLE user (
     CONSTRAINT user_pk PRIMARY KEY (id_user)
 );
 
+drop table star;
+-- Table : star
+CREATE TABLE star(
+  id_star int NOT NULL AUTO_INCREMENT,
+  id_user int NOT NULL,
+  id_mechanic int NOT NULL,
+  score tinyint NOT NULL,
+  status tinyint NOT NULL,
+  tx_date datetime NOT NULL,
+  tx_id_user int NOT NULL,
+  tx_host varchar(100) NOT NULL,
+  tx_update datetime NOT NULL,
+  CONSTRAINT star_pk PRIMARY KEY (id_star)
+);
+
 -- foreign keys
 -- Reference: image_publication (table: image_publication)
 ALTER TABLE image_publication ADD CONSTRAINT image_publication FOREIGN KEY image_publication (id_publication)
@@ -261,5 +276,6 @@ ALTER TABLE seller ADD CONSTRAINT seller_person FOREIGN KEY seller_person (id_pe
 ALTER TABLE seller ADD CONSTRAINT seller_user FOREIGN KEY seller_user (id_user)
     REFERENCES user (id_user);
 
+ALTER TABLE star ADD CONSTRAINT unic_id UNIQUE(id_user,id_mechanic)
 -- End of file.
 

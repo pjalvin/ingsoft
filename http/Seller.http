@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 ###
 
-PUT http://localhost:8080/image
+PUT http://localhost:8080/seller/image
 Accept: application/json
 Content-Type: application/json
 

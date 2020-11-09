@@ -55,7 +55,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/publications/List
+GET http://localhost:8080/publications/list
 Content-Type: application/json
 
 ###

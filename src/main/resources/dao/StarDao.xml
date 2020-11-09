@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.StarDao">
+    <insert id="createStar" parameterType="bo.ucb.edu.ingsoft.model.Star">
+        INSERT into star VALUES
+        (null,#{idUser},#{idMechanic},#{score},1,#{transaction.txDate},
+        #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
+    </insert>
+</mapper>

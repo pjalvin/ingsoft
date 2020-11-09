@@ -20,8 +20,23 @@
     </select>
     <select id="mechanicContact" resultType="bo.ucb.edu.ingsoft.dto.MechanicContactRequest">
         SELECT
-            shop_name as shopName,
-            shop_phone_number as shopPhoneNumber
+                shop_name as shopName,
+                shop_phone_number as shopPhoneNumber
         FROM mechanic WHERE id_mechanic = #{idMechanic}
     </select>
+
+    <select id="stars" resultType="bo.ucb.edu.ingsoft.model.Mechanic">
+        SELECT
+                stars_count as starsCount,
+                stars as stars
+        FROM mechanic WHERE id_mechanic = #{idMechanic}
+    </select>
+
+    <update id="starsValue" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
+        UPDATE mechanic SET
+            stars = (#{stars}+stars*stars_count)/(stars_count+1),
+            stars_count = stars_count+1
+        WHERE id_mechanic = #{idMechanic}
+    </update>
+
 </mapper>
