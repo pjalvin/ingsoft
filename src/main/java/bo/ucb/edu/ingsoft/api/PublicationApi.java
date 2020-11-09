@@ -57,4 +57,11 @@ public class PublicationApi {
         publicationBl.uploadImages(images,idPublication,transaction);
         return "Imagenes subidas correctamente";
     }
+    @RequestMapping(path="images" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public PublicationRequest update(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {
+        TransactionUtil transactionUtil=new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        publicationBl.create(publicationRequest,transaction);
+        return publicationRequest;
+    }
 }

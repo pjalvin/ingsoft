@@ -75,7 +75,6 @@ public class PublicationBl {
             imagePublication.setTransaction(transaction);
             imagePublications.add(imagePublication);
         });
-        System.out.println(imagePublications.get(0).getPath());
         publicationDao.createImagePublication(imagePublications);
     }
 }

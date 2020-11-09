@@ -1,6 +1,7 @@
 package bo.ucb.edu.ingsoft.api;
 import bo.ucb.edu.ingsoft.bl.SellerBl;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
+import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.SellerRequest;
 import bo.ucb.edu.ingsoft.model.Seller;
 import bo.ucb.edu.ingsoft.model.Transaction;
@@ -54,9 +55,9 @@ public class SellerApi {
     }
 
     @RequestMapping(path="/publications",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<PublicationRequest> publications( HttpServletRequest request) {
+    public List<PublicationSimpleRequest> publications( HttpServletRequest request) {
         Integer idSeller=1;
-        List<PublicationRequest> publications=sellerBl.publications(idSeller);
+        List<PublicationSimpleRequest> publications=sellerBl.publications(idSeller);
         return publications;
     }
 

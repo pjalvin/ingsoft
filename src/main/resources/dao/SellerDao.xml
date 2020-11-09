@@ -50,6 +50,6 @@
         image_publication.id_publication=publication.id_publication
         WHERE
             id_seller =#{idSeller}
-        LIMIT 1;
+        GROUP BY publication.id_publication;
     </select>
 </mapper>

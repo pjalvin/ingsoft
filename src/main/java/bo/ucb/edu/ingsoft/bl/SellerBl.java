@@ -5,6 +5,7 @@ import bo.ucb.edu.ingsoft.dao.SellerDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dao.UserDao;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
+import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.SellerRequest;
 import bo.ucb.edu.ingsoft.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,8 +89,8 @@ public class SellerBl {
 
         return sellerRequest;
     }
-    public List<PublicationRequest> publications(Integer idSeller){
-        List<PublicationRequest> publications=sellerDao.publications(idSeller);
+    public List<PublicationSimpleRequest> publications(Integer idSeller){
+        List<PublicationSimpleRequest> publications=sellerDao.publications(idSeller);
         return publications;
     }
 }
