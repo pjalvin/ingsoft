@@ -9,6 +9,25 @@
         #{doorNumber},#{licensePlate},#{description},#{motor},#{price},#{datePublication},1,#{transaction.txDate},
         #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
+    <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Publication">
+        UPDATE publication set
+        id_brand=#{idBrand},
+        id_color=#{idColor},
+        id_city=#{idCity},
+        title=#{title},
+        model=#{model},
+        door_number=#{doorNumber},
+        license_plate=#{licensePlate},
+        description=#{description},
+        motor=#{motor},
+        price=#{price},
+        date_publication=#{datePublication},
+        tx_id_user=#{transaction.txIdUser},
+        tx_host=#{transaction.txHost},
+        tx_update=#{transaction.txUpdate}
+        WHERE
+        id_publication=#{idPublication}
+    </update>
     <select id="findByContactId" resultType="bo.ucb.edu.ingsoft.model.Publication">
         SELECT * FROM Publication LIMIT 5 OFFSET 1
     </select>

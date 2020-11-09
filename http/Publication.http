@@ -35,3 +35,24 @@ Content-Type: application/json
 }
 
 ###
+
+PUT http://localhost:8080/publications
+Accept: application/json
+Content-Type: application/json
+
+{
+  "idPublication": 3,
+  "idSeller": 1,
+  "idBrand": 1,
+  "idColor": 1,
+  "idCity": 1,
+  "title": "Toyota Rav4 2015",
+  "model": 2018,
+  "doorNumber": 5,
+  "licensePlate": "4089ZPLP",
+  "description": "Hermoso auto con todas las prestaciones y confort",
+  "motor": "1600cc",
+  "price": 15000.500
+}
+
+###

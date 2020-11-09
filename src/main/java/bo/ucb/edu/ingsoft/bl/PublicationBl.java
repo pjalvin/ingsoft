@@ -60,10 +60,29 @@ public class PublicationBl {
         publicationRequest.setIdPublication(publicationId);
         return publicationRequest;
      }
+    public PublicationRequest update(PublicationRequest publicationRequest, Transaction transaction){
 
-    public Publication findContacById() {
-        return  publicationDao.findByContactId();
+        Publication publication=new Publication();
+        publication.setIdPublication(publicationRequest.getIdPublication());
+        publication.setDescription(publicationRequest.getDescription());
+        publication.setDoorNumber(publicationRequest.getDoorNumber());
+        publication.setIdBrand(publicationRequest.getIdBrand());
+        publication.setIdCity(publicationRequest.getIdCity());
+        publication.setIdColor(publicationRequest.getIdColor());
+        publication.setIdSeller(publicationRequest.getIdSeller());
+        publication.setLicensePlate(publicationRequest.getLicensePlate());
+        publication.setTitle(publicationRequest.getTitle());
+        publication.setModel(publicationRequest.getModel());
+        publication.setMotor(publicationRequest.getMotor());
+        publication.setModel(publicationRequest.getModel());
+        publication.setPrice(publicationRequest.getPrice());
+        publication.setStatus(publicationRequest.getStatus());
+        publication.setTransaction(transaction);
+        publication.setDatePublication(new Date());
+        publicationDao.update(publication);
+        return publicationRequest;
     }
+
     public void uploadImages(MultipartFile[] images,Integer idPublication,Transaction transaction){
         List<ImagePublication> imagePublications=new ArrayList<>();
         Arrays.asList(images).stream().forEach(image -> {
