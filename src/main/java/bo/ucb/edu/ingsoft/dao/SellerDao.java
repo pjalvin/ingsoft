@@ -13,5 +13,7 @@ public interface SellerDao {
     public SellerRequest findBySellerId(Integer sellerId);
     public void createSeller(Seller seller);
     public void updateSeller(Seller seller);
+    public void updateImage(Seller seller);
     public List<PublicationSimpleRequest> publications(Integer idSeller);
+
 }

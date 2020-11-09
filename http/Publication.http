@@ -7,10 +7,11 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8080/publications
+Accept: application/json
 Content-Type: application/json
 
 {
-  "idPublication": 7
+  "idPublication": 36
 }
 
 ###
@@ -25,7 +26,7 @@ Content-Type: application/json
   "idBrand": 1,
   "idColor": 1,
   "idCity": 1,
-  "title": "Toyota Rav4 2014",
+  "title": "Title 2",
   "model": 2018,
   "doorNumber": 5,
   "licensePlate": "4089ZPLP",

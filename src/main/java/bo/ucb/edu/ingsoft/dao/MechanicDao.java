@@ -6,10 +6,12 @@ import bo.ucb.edu.ingsoft.model.Mechanic;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface MechanicDao {
 
-    public MechanicSimpleRequest mechanics();
+    public List<MechanicSimpleRequest> mechanics();
 
     public MechanicContactRequest mechanicContact(Integer idMechanic);
 }
