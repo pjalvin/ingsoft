@@ -45,7 +45,7 @@ public class SellerApi {
         return sellerRequest;
     }
 
-    @RequestMapping(path="seller/image",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path="/image",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public String uploadImages(@RequestParam MultipartFile images, @RequestParam Integer idSeller, HttpServletRequest request){
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
