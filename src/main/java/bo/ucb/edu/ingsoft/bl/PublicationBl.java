@@ -103,4 +103,10 @@ public class PublicationBl {
         publication.setTransaction(transaction);
         publicationDao.delete(publication);
     }
+
+
+    public ArrayList<PublicationRequest> ListPublicationss() {
+        return publicationDao.ListPublication();
+
+    }
 }

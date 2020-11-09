@@ -5,6 +5,7 @@ import bo.ucb.edu.ingsoft.dto.PublicationRequest;
 import bo.ucb.edu.ingsoft.model.Publication;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Mapper
@@ -16,4 +17,6 @@ public interface PublicationDao {
 
     public PublicationRequest PublicationSearch(String buscar);
     public PublicationRequest searchPublication(PublicationRequest publicationRequest);
+
+    ArrayList<PublicationRequest> ListPublication();
 }

@@ -37,8 +37,9 @@
         WHERE
         id_publication=#{idPublication}
     </update>
-    <select id="findByContactId" resultType="bo.ucb.edu.ingsoft.model.Publication">
-        SELECT * FROM Publication LIMIT 5 OFFSET 1
+    <select id="ListPublication" resultType="bo.ucb.edu.ingsoft.model.Publication">
+        SELECT id_seller as idSeller
+         FROM Publication LIMIT 5 OFFSET 1
     </select>
 
 

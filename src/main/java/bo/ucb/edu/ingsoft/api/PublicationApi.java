@@ -20,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/publications")
 public class PublicationApi {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(MechanicApi.class);
     private  PublicationBl publicationBl;
     @Autowired

@@ -57,5 +57,10 @@ Content-Type: application/json
 }
 
 ###
+
+GET http://localhost:8080/publications/List
+Content-Type: application/json
+
+###
 DELETE http://localhost:8080/publications?idPublication=1
 Accept: application/json
