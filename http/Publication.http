@@ -1,13 +1,17 @@
-PATCH http://localhost:8080/publications/?Buscar=Title 2
-Content-Type: application/json
-
-###
-
 GET http://localhost:8080/publications
 Content-Type: application/json
 
 {
-  "idPublication": 7
+  "Buscar": 7
+}
+###
+
+GET http://localhost:8080/publications
+Accept: application/json
+Content-Type: application/json
+
+{
+  "idPublication": 36
 }
 
 ###
@@ -22,8 +26,8 @@ Content-Type: application/json
   "idBrand": 1,
   "idColor": 1,
   "idCity": 1,
-  "title": "Toyota Rav4 2014",
-  "model": 2000,
+  "title": "Title 2",
+  "model": 2018,
   "doorNumber": 5,
   "licensePlate": "4089ZPLP",
   "description": "Hermoso auto con todas las prestaciones y confort",
@@ -53,3 +57,5 @@ Content-Type: application/json
 }
 
 ###
+DELETE http://localhost:8080/publications?idPublication=1
+Accept: application/json

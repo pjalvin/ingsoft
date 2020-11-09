@@ -96,4 +96,11 @@ public class PublicationBl {
         });
         publicationDao.createImagePublication(imagePublications);
     }
+    public void delete(Integer idPublication, Transaction transaction){
+        Publication publication= new Publication();
+        publication.setStatus(false);
+        publication.setIdPublication(idPublication);
+        publication.setTransaction(transaction);
+        publicationDao.delete(publication);
+    }
 }

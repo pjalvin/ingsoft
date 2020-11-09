@@ -11,6 +11,7 @@ import java.util.List;
 public interface PublicationDao {
     public void create(Publication publication);
     public void update(Publication publication);
+    public void delete(Publication publication);
     public void createImagePublication(List<ImagePublication> imagePublications);
 
     public PublicationRequest PublicationSearch(String buscar);

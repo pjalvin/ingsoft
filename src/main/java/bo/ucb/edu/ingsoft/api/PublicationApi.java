@@ -33,9 +33,11 @@ public class PublicationApi {
 
     @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public PublicationRequest SearchPublication(@RequestParam String Buscar){
+    public PublicationRequest SearchPublication(@RequestBody String Buscar){
         return publicationBl.publicationBuscar(Buscar);
     }
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
 
     public Publication ViewListPublication(HttpServletRequest request){
         return null;
@@ -54,5 +56,12 @@ public class PublicationApi {
         Transaction transaction = transactionUtil.createTransaction(request);
         publicationBl.uploadImages(images,idPublication,transaction);
         return "Imagenes subidas correctamente";
+    }
+    @RequestMapping(method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String delete(@RequestParam Integer idPublication, HttpServletRequest request) {
+        TransactionUtil transactionUtil=new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        publicationBl.delete(idPublication,transaction);
+        return "Publicacion eliminada";
     }
 }

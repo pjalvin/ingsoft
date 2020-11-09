@@ -15,6 +15,15 @@ Content-Type: application/json
   "phoneNumber": "456321",
   "imagePath": "Hermoso auto con todas las prestaciones y confort"
 }
+###
+
+PUT http://localhost:8080/seller/image
+Accept: application/json
+Content-Type: application/json
+
+{
+  "idSeller": 4
+}
 
 ###
 
@@ -23,9 +32,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "idSeller": 1,
-  "idPerson": 1,
-  "idUser": 1,
+  "idSeller": 4,
+  "idPerson": 4,
+  "idUser": 4,
   "password": "456987",
   "email": "jhf@gmail.com",
   "firstName": "Silvana Stephanie",

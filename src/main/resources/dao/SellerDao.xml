@@ -33,6 +33,11 @@
         tx_id_user=#{transaction.txIdUser},tx_host=#{transaction.txHost},tx_update=#{transaction.txUpdate}
         WHERE id_seller=#{idSeller}
     </update>
+    <update id="updateImage" parameterType="bo.ucb.edu.ingsoft.model.Seller">
+        UPDATE seller SET
+        image_path=#{imagePath}
+        WHERE id_seller=#{idSeller}
+    </update>
     <resultMap type="bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest" id="publicationsMap">
         <result column="idPublication" property="idPublication"/>
         <result column="imagePath" property="imagePath"/>
@@ -48,8 +53,13 @@
         FROM publication
         INNER JOIN image_publication on
         image_publication.id_publication=publication.id_publication
+        INNER JOIN seller on
+        seller.id_seller=publication.id_seller
         WHERE
-            id_seller =#{idSeller}
+            seller.id_seller =#{idSeller}
+            and image_publication.status=1
+            and publication.status=1
+            and seller.status=1
         GROUP BY publication.id_publication;
     </select>
 </mapper>

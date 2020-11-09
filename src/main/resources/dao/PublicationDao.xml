@@ -28,9 +28,19 @@
         WHERE
         id_publication=#{idPublication}
     </update>
+    <update id="delete" parameterType="bo.ucb.edu.ingsoft.model.Publication">
+        UPDATE publication set
+        status=#{status},
+        tx_id_user=#{transaction.txIdUser},
+        tx_host=#{transaction.txHost},
+        tx_update=#{transaction.txUpdate}
+        WHERE
+        id_publication=#{idPublication}
+    </update>
     <select id="findByContactId" resultType="bo.ucb.edu.ingsoft.model.Publication">
         SELECT * FROM Publication LIMIT 5 OFFSET 1
     </select>
+
 
 
 
