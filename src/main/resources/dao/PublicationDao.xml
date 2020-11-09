@@ -105,4 +105,28 @@
         </foreach>
     </insert>
 
+    <resultMap type="bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest" id="publicationsMap">
+        <result column="idPublication" property="idPublication"/>
+        <result column="imagePath" property="imagePath"/>
+        <result column="title" property="title"/>
+        <result column="price" property="price"/>
+    </resultMap>
+    <select id="publications" resultMap="publicationsMap">
+        SELECT
+               publication.id_publication as idPublication,
+               image_publication.path as imagePath,
+               title as title,
+               price as price
+        FROM publication
+        INNER JOIN image_publication on
+        image_publication.id_publication=publication.id_publication
+        INNER JOIN seller on
+        seller.id_seller=publication.id_seller
+        WHERE
+            image_publication.status=1
+            and publication.status=1
+            and seller.status=1
+        GROUP BY publication.id_publication;
+    </select>
+
 </mapper>

@@ -36,7 +36,7 @@ public class MechanicApi {
 
 
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public java.util.List<MechanicSimpleRequest> mechanics(HttpServletRequest request) {
+    public List<MechanicSimpleRequest> mechanics(HttpServletRequest request) {
         List<MechanicSimpleRequest> mechanic=mechanicBl.mechanics();
         return mechanic;
     }

@@ -2,9 +2,8 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.PublicationBl;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
-import bo.ucb.edu.ingsoft.model.Publication;
+import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
 import bo.ucb.edu.ingsoft.model.Transaction;
-import bo.ucb.edu.ingsoft.util.StorageUtil;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -39,6 +37,15 @@ public class PublicationApi {
     public PublicationRequest SearchPublication(@RequestParam String Buscar){
         return publicationBl.publicationSearch(Buscar);
     }
+
+    @RequestMapping(path="/list",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PublicationSimpleRequest> publications(HttpServletRequest request) {
+        Integer idPublication=1;
+        List<PublicationSimpleRequest> publications=publicationBl.ListPublicationss(idPublication);
+        return publications;
+    }
+
+
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 

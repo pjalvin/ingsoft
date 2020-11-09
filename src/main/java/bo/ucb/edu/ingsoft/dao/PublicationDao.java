@@ -1,5 +1,6 @@
 package bo.ucb.edu.ingsoft.dao;
 
+import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
 import bo.ucb.edu.ingsoft.model.ImagePublication;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
 import bo.ucb.edu.ingsoft.model.Publication;
@@ -19,5 +20,6 @@ public interface PublicationDao {
 
     public PublicationRequest PublicationSearch(String buscar);
 
-    ArrayList<PublicationRequest> ListPublication();
+    public List<PublicationSimpleRequest> publications(Integer idPublication);
+
 }

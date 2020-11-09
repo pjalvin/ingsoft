@@ -3,6 +3,7 @@ package bo.ucb.edu.ingsoft.bl;
 import bo.ucb.edu.ingsoft.dao.PublicationDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
+import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
 import bo.ucb.edu.ingsoft.model.ImagePublication;
 import bo.ucb.edu.ingsoft.model.Publication;
 import bo.ucb.edu.ingsoft.model.Transaction;
@@ -105,8 +106,10 @@ public class PublicationBl {
     }
 
 
-    public ArrayList<PublicationRequest> ListPublicationss() {
-        return publicationDao.ListPublication();
+    public List<PublicationSimpleRequest> ListPublicationss(Integer idPublication) {
+        List<PublicationSimpleRequest> publications=publicationDao.publications(idPublication);
+        return publications;
 
     }
+
 }
