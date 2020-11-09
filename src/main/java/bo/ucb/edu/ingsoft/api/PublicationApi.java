@@ -68,7 +68,6 @@ public class PublicationApi {
     public PublicationRequest update(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
-        publicationBl.create(publicationRequest,transaction);
         publicationBl.update(publicationRequest,transaction);
         return publicationRequest;
     }
