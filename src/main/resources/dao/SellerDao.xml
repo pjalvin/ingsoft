@@ -48,8 +48,13 @@
         FROM publication
         INNER JOIN image_publication on
         image_publication.id_publication=publication.id_publication
+        INNER JOIN seller on
+        seller.id_seller=publication.id_seller
         WHERE
-            id_seller =#{idSeller}
+            seller.id_seller =#{idSeller}
+            and image_publication.status=1
+            and publication.status=1
+            and seller.status=1
         GROUP BY publication.id_publication;
     </select>
 </mapper>

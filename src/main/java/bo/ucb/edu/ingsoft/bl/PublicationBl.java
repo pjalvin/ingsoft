@@ -29,7 +29,7 @@ public class PublicationBl {
     }
 
 
-    public PublicationRequest Serchpublication(PublicationRequest publicationRequest){
+    public PublicationRequest Searchpublication(PublicationRequest publicationRequest){
         return publicationDao.searchPublication(publicationRequest);
     }
 
@@ -95,5 +95,12 @@ public class PublicationBl {
             imagePublications.add(imagePublication);
         });
         publicationDao.createImagePublication(imagePublications);
+    }
+    public void delete(Integer idPublication, Transaction transaction){
+        Publication publication= new Publication();
+        publication.setStatus(false);
+        publication.setIdPublication(idPublication);
+        publication.setTransaction(transaction);
+        publicationDao.delete(publication);
     }
 }
