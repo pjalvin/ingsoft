@@ -37,14 +37,15 @@
         WHERE
         id_publication=#{idPublication}
     </update>
+
+
+
+
+
     <select id="ListPublication" resultType="bo.ucb.edu.ingsoft.model.Publication">
         SELECT id_seller as idSeller
          FROM Publication LIMIT 5 OFFSET 1
     </select>
-
-
-
-
 
     <select id="searchPublication" resultType="bo.ucb.edu.ingsoft.dto.PublicationRequest">
         SELECT
@@ -66,6 +67,8 @@
             id_publication = #{idPublication}
     </select>
 
+
+
     <select id="PublicationSearch" resultType="bo.ucb.edu.ingsoft.dto.PublicationRequest">
         SELECT
             id_publication as idPublication,
@@ -84,6 +87,7 @@
         FROM publication
         WHERE
             title LIKE #{%buscar%} OR model LIKE #{%buscar%} OR license_plate LIKE #{%buscar%}
+        LIMIT 1
 
     </select>
     <insert id="createImagePublication" parameterType="java.util.List">

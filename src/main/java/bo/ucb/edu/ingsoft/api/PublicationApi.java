@@ -27,22 +27,19 @@ public class PublicationApi {
     public PublicationApi(PublicationBl publicationBl) {
         this.publicationBl = publicationBl;
     }
+
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public PublicationRequest SearchPublication(@RequestBody PublicationRequest publicationRequest){
-        return publicationBl.Searchpublication(publicationRequest);
+    public PublicationRequest SearchPublication1(@RequestBody PublicationRequest publicationRequest){
+        return publicationBl.Searchpublication1(publicationRequest);
     }
 
-    @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
-    public PublicationRequest SearchPublication(@RequestBody String Buscar){
-        return publicationBl.publicationBuscar(Buscar);
-    }
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
 
-    public Publication ViewListPublication(HttpServletRequest request){
-        return null;
+    @RequestMapping(path="/search",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public PublicationRequest SearchPublication(@RequestParam String Buscar){
+        return publicationBl.publicationSearch(Buscar);
     }
+
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 
     public PublicationRequest create(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {

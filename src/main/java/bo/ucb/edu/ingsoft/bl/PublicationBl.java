@@ -29,11 +29,11 @@ public class PublicationBl {
     }
 
 
-    public PublicationRequest Searchpublication(PublicationRequest publicationRequest){
+    public PublicationRequest Searchpublication1(PublicationRequest publicationRequest){
         return publicationDao.searchPublication(publicationRequest);
     }
 
-    public PublicationRequest publicationBuscar(String buscar){
+    public PublicationRequest publicationSearch(String buscar){
         return publicationDao.PublicationSearch(buscar);
     }
 

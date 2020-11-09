@@ -1,9 +1,6 @@
-GET http://localhost:8080/publications
+GET http://localhost:8080/publications/search?Buscar=2018
 Content-Type: application/json
 
-{
-  "Buscar": 7
-}
 ###
 
 GET http://localhost:8080/publications
@@ -11,7 +8,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "idPublication": 36
+  "idPublication": 1
 }
 
 ###

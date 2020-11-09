@@ -13,7 +13,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping(value = "/publications/List")
+@RequestMapping(value = "/publication/List")
 public class PaginationPublicationApi {
     private PublicationBl publicationBl;
 

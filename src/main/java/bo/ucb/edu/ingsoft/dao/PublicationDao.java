@@ -15,8 +15,9 @@ public interface PublicationDao {
     public void delete(Publication publication);
     public void createImagePublication(List<ImagePublication> imagePublications);
 
-    public PublicationRequest PublicationSearch(String buscar);
     public PublicationRequest searchPublication(PublicationRequest publicationRequest);
+
+    public PublicationRequest PublicationSearch(String buscar);
 
     ArrayList<PublicationRequest> ListPublication();
 }
