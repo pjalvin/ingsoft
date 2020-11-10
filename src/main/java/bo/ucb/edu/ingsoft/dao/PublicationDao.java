@@ -16,7 +16,7 @@ public interface PublicationDao {
     public void delete(Publication publication);
     public void createImagePublication(List<ImagePublication> imagePublications);
 
-    public List<PublicationSimpleRequest> publications1(PublicationRequest publicationRequest, Integer i, Integer n);
+    public List<PublicationSimpleRequest> publications(PublicationRequest publicationRequest, Integer i, Integer n);
 
 
 }

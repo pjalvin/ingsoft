@@ -30,7 +30,7 @@ public class PublicationBl {
     }
 
 
-    public List<PublicationSimpleRequest> publications1(Integer idPublication, Integer i, Integer n, Integer idColor, Integer model, Integer idBrand, Integer doorNumber,Integer idCity){
+    public List<PublicationSimpleRequest> publications(Integer idPublication, Integer i, Integer n, Integer idColor, Integer model, Integer idBrand, Integer doorNumber,Integer idCity){
         PublicationRequest publicationRequest=new PublicationRequest();
         publicationRequest.setIdPublication(idPublication);
         publicationRequest.setIdColor(idColor);
@@ -39,7 +39,7 @@ public class PublicationBl {
         publicationRequest.setDoorNumber(doorNumber);
         publicationRequest.setIdCity(idCity);
 
-        return publicationDao.publications1(publicationRequest,i,n);
+        return publicationDao.publications(publicationRequest,i,n);
     }
 
 

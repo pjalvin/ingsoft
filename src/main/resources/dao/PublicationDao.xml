@@ -84,7 +84,7 @@
         <result column="title" property="title"/>
         <result column="price" property="price"/>
     </resultMap>
-    <select id="publications1" resultMap="publicationsMap">
+    <select id="publications" resultMap="publicationsMap">
         SELECT
                publication.id_publication as idPublication,
                image_publication.path as imagePath,
