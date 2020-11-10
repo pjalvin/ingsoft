@@ -18,6 +18,5 @@ public interface PublicationDao {
 
     public List<PublicationSimpleRequest> publications1(PublicationRequest publicationRequest, Integer i, Integer n);
 
-    public List<PublicationSimpleRequest> publications(Integer pagi);
 
 }

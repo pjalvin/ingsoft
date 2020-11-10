@@ -111,11 +111,4 @@ public class PublicationBl {
     }
 
 
-    public List<PublicationSimpleRequest> Publicationss(Integer pagi) {
-        List<PublicationSimpleRequest> publications=publicationDao.publications(pagi);
-        return publications;
-    }
-
-
-
 }

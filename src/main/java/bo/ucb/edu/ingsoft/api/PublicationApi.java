@@ -39,12 +39,6 @@ public class PublicationApi {
     }
 
 
-    @RequestMapping(path="/pagination",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<PublicationSimpleRequest> publications(Integer pagi) {
-        List<PublicationSimpleRequest> publications=publicationBl.Publicationss(pagi);
-        return publications;
-    }
-
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 
