@@ -1,4 +1,4 @@
-drop database cabalito_db;
+drop database if exists cabalito_db;
 
 
 create database cabalito_db;
@@ -224,7 +224,7 @@ CREATE TABLE user (
     CONSTRAINT user_pk PRIMARY KEY (id_user)
 );
 
-drop table star;
+drop table if exists star;
 -- Table : star
 CREATE TABLE star(
   id_star int NOT NULL AUTO_INCREMENT,

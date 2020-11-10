@@ -1,4 +1,4 @@
-GET http://localhost:8080/publications/?n=5&i=0&idColor=4
+GET http://localhost:8080/publications/?n=5&i=0
 Accept: application/json
 Content-Type: application/json
 
