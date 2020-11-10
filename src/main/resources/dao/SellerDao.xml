@@ -60,6 +60,10 @@
             and image_publication.status=1
             and publication.status=1
             and seller.status=1
-        GROUP BY publication.id_publication;
+            and image_publication.id_image_publication IN(
+                  SELECT MIN(id_image_publication)
+                  FROM image_publication
+                  WHERE image_publication.id_publication=publication.id_publication
+                )
     </select>
 </mapper>

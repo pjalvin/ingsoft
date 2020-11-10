@@ -118,7 +118,11 @@
             <if test="publicationRequest.idPublication!=null">
                 AND publication.id_publication=#{publicationRequest.idPublication}
             </if>
-        GROUP BY publication.id_publication
+        AND image_publication.id_image_publication IN(
+        SELECT MIN(id_image_publication)
+        FROM image_publication
+        WHERE image_publication.id_publication=publication.id_publication
+        )
         <if test="publicationRequest.idPublication==null">
             LIMIT #{n} OFFSET #{i}
         </if>
