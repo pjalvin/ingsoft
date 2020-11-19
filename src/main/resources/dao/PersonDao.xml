@@ -11,7 +11,8 @@
                phone_number as phoneNumber
         FROM person
         WHERE
-            id_person = #{idPerson}
+            id_person = #{idPerson} and
+            status = 1
     </select>
     <insert id="createPerson" parameterType="bo.ucb.edu.ingsoft.model.Person">
         INSERT into person VALUES
@@ -22,6 +23,7 @@
         UPDATE person SET
         id_person=#{idPerson}, first_name=#{firstName},last_name=#{lastName},phone_number=#{phoneNumber},status=1,tx_date=#{transaction.txDate},
         tx_id_user=#{transaction.txIdUser},tx_host=#{transaction.txHost},tx_update=#{transaction.txUpdate}
-        WHERE id_person=#{idPerson}
+        WHERE id_person=#{idPerson} and
+            status = 1
     </update>
 </mapper>
