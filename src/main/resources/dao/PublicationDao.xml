@@ -24,7 +24,8 @@
         date_publication=#{datePublication},
         tx_id_user=#{transaction.txIdUser},
         tx_host=#{transaction.txHost},
-        tx_update=#{transaction.txUpdate}
+        tx_update=#{transaction.txUpdate},
+        status=1
         WHERE
         id_publication=#{idPublication}
     </update>
@@ -35,7 +36,8 @@
         tx_host=#{transaction.txHost},
         tx_update=#{transaction.txUpdate}
         WHERE
-        id_publication=#{idPublication}
+        id_publication=#{idPublication} and
+        status=1
     </update>
 
 
@@ -60,7 +62,8 @@
             status as status
         FROM publication
         WHERE
-            id_publication = #{idPublication}
+            id_publication = #{idPublication} and
+            status=1
     </select>
 
     <insert id="createImagePublication" parameterType="java.util.List">
