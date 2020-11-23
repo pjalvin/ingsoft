@@ -9,7 +9,8 @@
                email as email
         FROM user
         WHERE
-            id_user = #{idUser}
+            id_user = #{idUser} and
+            status = 1
     </select>
     <insert id="createUser" parameterType="bo.ucb.edu.ingsoft.model.User">
         INSERT into user VALUES
@@ -20,6 +21,7 @@
         UPDATE user SET
         id_user=#{idUser}, password=#{password},email=#{email},status=1,tx_date=#{transaction.txDate},
         tx_id_user=#{transaction.txIdUser},tx_host=#{transaction.txHost},tx_update=#{transaction.txUpdate}
-        WHERE id_user=#{idUser}
+        WHERE id_user=#{idUser} and
+            status = 1
     </update>
 </mapper>

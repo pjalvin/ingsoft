@@ -46,21 +46,6 @@ public class MechanicBl {
         star.setTransaction(transaction);
         starDao.createStar(star);
 
-        int score = qualifyMechanicRequest.getScore();
-
-        /*Mechanic mechanicStars = mechanicDao.stars(qualifyMechanicRequest.getIdMechanic());
-
-        int oldStarsCount = mechanicStars.getStarsCount();
-        int oldStars  = mechanicStars.getStars();
-
-        int newStarsCount = oldStarsCount+1;
-
-        int newStars = (oldStars*oldStarsCount+score)/newStarsCount;
-
-        mechanicStars.setStarsCount(newStarsCount);
-        mechanicStars.setStars(newStars);
-        mechanicStars.setIdMechanic(qualifyMechanicRequest.getIdMechanic());*/
-
         Mechanic mechanic = new Mechanic();
 
         mechanic.setStars(qualifyMechanicRequest.getScore());

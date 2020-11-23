@@ -25,18 +25,23 @@
         INNER JOIN person p on
         s.id_person=p.id_person
         WHERE
-            s.id_user = 2
+            s.id_user = 2 and
+            s.status = 1 and
+            u.status = 1 and
+            p.status = 1
     </select>
     <update id="updateSeller" parameterType="bo.ucb.edu.ingsoft.model.Seller">
         UPDATE seller SET
         id_seller=#{idSeller},id_person=#{idPerson},id_user=#{idUser},status=1,image_path=#{imagePath}, tx_date=#{transaction.txDate},
         tx_id_user=#{transaction.txIdUser},tx_host=#{transaction.txHost},tx_update=#{transaction.txUpdate}
-        WHERE id_seller=#{idSeller}
+        WHERE id_seller=#{idSeller} and
+            status = 1
     </update>
     <update id="updateImage" parameterType="bo.ucb.edu.ingsoft.model.Seller">
         UPDATE seller SET
         image_path=#{imagePath}
-        WHERE id_seller=#{idSeller}
+        WHERE id_seller=#{idSeller} and
+            status = 1
     </update>
     <resultMap type="bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest" id="publicationsMap">
         <result column="idPublication" property="idPublication"/>

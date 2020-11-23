@@ -15,28 +15,28 @@
                location as location,
                shop_name as shopName,
                stars as stars
-        FROM mechanic LIMIT 3
+        FROM mechanic WHERE status = 1
 
     </select>
     <select id="mechanicContact" resultType="bo.ucb.edu.ingsoft.dto.MechanicContactRequest">
         SELECT
                 shop_name as shopName,
                 shop_phone_number as shopPhoneNumber
-        FROM mechanic WHERE id_mechanic = #{idMechanic}
+        FROM mechanic WHERE id_mechanic = #{idMechanic} and status = 1
     </select>
 
     <select id="stars" resultType="bo.ucb.edu.ingsoft.model.Mechanic">
         SELECT
                 stars_count as starsCount,
                 stars as stars
-        FROM mechanic WHERE id_mechanic = #{idMechanic}
+        FROM mechanic WHERE id_mechanic = #{idMechanic} and status = 1
     </select>
 
     <update id="starsValue" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
         UPDATE mechanic SET
             stars = (#{stars}+stars*stars_count)/(stars_count+1),
             stars_count = stars_count+1
-        WHERE id_mechanic = #{idMechanic}
+        WHERE id_mechanic = #{idMechanic} and status = 1
     </update>
 
 </mapper>
