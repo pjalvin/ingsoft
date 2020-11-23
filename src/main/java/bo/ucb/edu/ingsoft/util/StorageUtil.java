@@ -1,7 +1,15 @@
 package bo.ucb.edu.ingsoft.util;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.InputStream;
 import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,6 +28,17 @@ public class StorageUtil {
             return this.root.getFileName()+"/"+nombre;
         }
         catch(Exception e){
+            throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
+        }
+    }
+    public byte[] get(String path,String name){
+        try{
+            String pather=path+"/"+name;
+            System.out.println(pather);
+            File imgPath = new File(path+"/"+name);
+            return Files.readAllBytes(imgPath.toPath());
+        }
+        catch (Exception e){
             throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
         }
     }

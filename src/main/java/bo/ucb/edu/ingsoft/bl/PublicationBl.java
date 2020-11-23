@@ -86,7 +86,6 @@ public class PublicationBl {
         publicationDao.update(publication);
         return publicationRequest;
     }
-
     public void uploadImages(MultipartFile[] images,Integer idPublication,Transaction transaction){
         List<ImagePublication> imagePublications=new ArrayList<>();
         Arrays.asList(images).stream().forEach(image -> {

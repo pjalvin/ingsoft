@@ -11,6 +11,10 @@ spring:
       connectionTestQuery: select 1
       maximum-pool-size: 2
       connection-timeout: 60000
+  servlet:
+    multipart:
+      max-file-size: 1MB
+      max-request-size: 5MB
 
 logging:
   level:

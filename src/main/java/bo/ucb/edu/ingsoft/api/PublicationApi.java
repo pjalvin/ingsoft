@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -49,12 +50,12 @@ public class PublicationApi {
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
         publicationRequest.setIdSeller(1);
-        System.out.println(publicationRequest);
         publicationBl.create(publicationRequest,transaction);
         return publicationRequest;
     }
-    @RequestMapping(path="images" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path="image" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public String uploadImages(@RequestParam MultipartFile[] images,@RequestParam Integer idPublication, HttpServletRequest request){
+
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
         publicationBl.uploadImages(images,idPublication,transaction);
