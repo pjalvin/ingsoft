@@ -16,6 +16,7 @@ public interface PublicationDao {
     public void delete(Publication publication);
     public void createImagePublication(List<ImagePublication> imagePublications);
     public PublicationViewRequest publicationView(Integer idPublication);
+    public List<PublicationSimpleRequest> publicationPaths(Integer idPublication);
 
     public List<PublicationSimpleRequest> publications(PublicationRequest publicationRequest, Integer i, Integer n);
     public List<Color> colors();

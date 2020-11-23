@@ -4,7 +4,7 @@ public class PublicationSimpleRequest {
     public Integer idPublication;
     public String imagePath;
     public String title;
-    public String price;
+    public Double price;
 
     public PublicationSimpleRequest() {
     }
@@ -33,11 +33,11 @@ public class PublicationSimpleRequest {
         this.title = title;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

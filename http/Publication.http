@@ -5,14 +5,21 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/publications/idd?idPublication=3
+GET http://localhost:8080/publications/idd?idPublication=2
 Accept: application/json
 Content-Type: application/json
 
 
 ###
 
-GET http://localhost:8080/publications/brands
+GET http://localhost:8080/publications/paths?idPublication=24
+Accept: application/json
+Content-Type: application/json
+
+
+###
+
+GET http://localhost:8080/publications/cities
 Accept: application/json
 Content-Type: application/json
 

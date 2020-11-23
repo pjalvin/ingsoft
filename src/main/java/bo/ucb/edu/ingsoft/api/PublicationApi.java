@@ -47,7 +47,10 @@ public class PublicationApi {
         return publicationBl.publicationsView(idPublication);
     }
 
-
+    @RequestMapping(path = "paths", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PublicationSimpleRequest> PathsPublication(@RequestParam Integer idPublication){
+        return publicationBl.publicationsPaths(idPublication);
+    }
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 
