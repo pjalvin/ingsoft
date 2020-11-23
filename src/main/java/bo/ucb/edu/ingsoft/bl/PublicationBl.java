@@ -4,6 +4,7 @@ import bo.ucb.edu.ingsoft.dao.PublicationDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
+import bo.ucb.edu.ingsoft.dto.PublicationViewRequest;
 import bo.ucb.edu.ingsoft.model.*;
 import bo.ucb.edu.ingsoft.util.StorageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -117,4 +118,7 @@ public class PublicationBl {
     }
 
 
+    public PublicationViewRequest publicationsView(Integer idPublication) {
+        return publicationDao.publicationView(idPublication);
+    }
 }

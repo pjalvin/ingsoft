@@ -3,6 +3,7 @@ package bo.ucb.edu.ingsoft.api;
 import bo.ucb.edu.ingsoft.bl.PublicationBl;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
+import bo.ucb.edu.ingsoft.dto.PublicationViewRequest;
 import bo.ucb.edu.ingsoft.model.Brand;
 import bo.ucb.edu.ingsoft.model.City;
 import bo.ucb.edu.ingsoft.model.Color;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -42,6 +42,11 @@ public class PublicationApi {
         return publicationBl.publications(idPublication,i,n,idColor,model,idBrand,doorNumber,idCity);
     }
 
+    @RequestMapping(path = "idd", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public PublicationViewRequest SearchPublication(@RequestParam Integer idPublication){
+        return publicationBl.publicationsView(idPublication);
+    }
+
 
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -50,12 +55,12 @@ public class PublicationApi {
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
         publicationRequest.setIdSeller(1);
+        System.out.println(publicationRequest);
         publicationBl.create(publicationRequest,transaction);
         return publicationRequest;
     }
-    @RequestMapping(path="image" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path="images" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public String uploadImages(@RequestParam MultipartFile[] images,@RequestParam Integer idPublication, HttpServletRequest request){
-
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
         publicationBl.uploadImages(images,idPublication,transaction);
