@@ -3,11 +3,6 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/mechanic/contact?idMechanic=3
-Accept: application/json
-
-###
-
 POST http://localhost:8080/mechanic
 Accept: application/json
 Content-Type: application/json

@@ -14,8 +14,6 @@ public interface MechanicDao {
 
     public List<MechanicSimpleRequest> mechanics();
 
-    public MechanicContactRequest mechanicContact(Integer idMechanic);
-
     public void qualifyMechanic(QualifyMechanicRequest qualifyMechanicRequest);
 
     public Mechanic stars (Integer idMechanic);

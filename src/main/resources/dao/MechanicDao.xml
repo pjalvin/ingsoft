@@ -14,15 +14,10 @@
                id_mechanic as idMechanic,
                location as location,
                shop_name as shopName,
-               stars as stars
+               stars as stars,
+               shop_phone_number as shopPhoneNumber
         FROM mechanic WHERE status = 1
 
-    </select>
-    <select id="mechanicContact" resultType="bo.ucb.edu.ingsoft.dto.MechanicContactRequest">
-        SELECT
-                shop_name as shopName,
-                shop_phone_number as shopPhoneNumber
-        FROM mechanic WHERE id_mechanic = #{idMechanic} and status = 1
     </select>
 
     <select id="stars" resultType="bo.ucb.edu.ingsoft.model.Mechanic">
