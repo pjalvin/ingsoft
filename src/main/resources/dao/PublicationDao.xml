@@ -9,6 +9,29 @@
         #{doorNumber},#{licensePlate},#{description},#{motor},#{price},#{datePublication},1,#{transaction.txDate},
         #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
+
+    <select  id="publicationView" resultType="bo.ucb.edu.ingsoft.dto.PublicationViewRequest">
+        SELECT
+            a.title as title,
+            a.description as description,
+            a.price as price,
+            b.brand as brand,
+            a.model as model,
+            a.license_plate as licensePlate,
+            e.color as color,
+            a.motor as motor,
+            d.phone_number as phoneNumber,
+
+            a.door_number as doorNumber,
+            a.id_seller as idSeller,
+            f.city as City
+               from publication a,brand b ,seller c, person d, color e,city f
+               where a.id_publication=#{idPublication} AND a.status=1
+               AND a.id_brand=b.id_brand AND a.id_seller=c.id_seller
+               AND c.id_person=d.id_person AND a.id_color=e.id_color
+               AND a.id_city=f.id_city
+    </select>
+
     <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Publication">
         UPDATE publication set
         id_brand=#{idBrand},

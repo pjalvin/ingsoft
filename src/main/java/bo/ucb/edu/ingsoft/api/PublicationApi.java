@@ -3,6 +3,7 @@ package bo.ucb.edu.ingsoft.api;
 import bo.ucb.edu.ingsoft.bl.PublicationBl;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
+import bo.ucb.edu.ingsoft.dto.PublicationViewRequest;
 import bo.ucb.edu.ingsoft.model.Brand;
 import bo.ucb.edu.ingsoft.model.City;
 import bo.ucb.edu.ingsoft.model.Color;
@@ -41,6 +42,11 @@ public class PublicationApi {
         return publicationBl.publications(idPublication,i,n,idColor,model,idBrand,doorNumber,idCity);
     }
 
+    @RequestMapping(path = "idd", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public PublicationViewRequest SearchPublication(@RequestParam Integer idPublication){
+        return publicationBl.publicationsView(idPublication);
+    }
+
 
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -53,6 +59,7 @@ public class PublicationApi {
         publicationBl.create(publicationRequest,transaction);
         return publicationRequest;
     }
+
     @RequestMapping(path="images" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public String uploadImages(@RequestParam MultipartFile[] images,@RequestParam Integer idPublication, HttpServletRequest request){
         TransactionUtil transactionUtil=new TransactionUtil();
