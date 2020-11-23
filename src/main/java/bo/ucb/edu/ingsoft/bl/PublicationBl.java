@@ -4,9 +4,7 @@ import bo.ucb.edu.ingsoft.dao.PublicationDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
-import bo.ucb.edu.ingsoft.model.ImagePublication;
-import bo.ucb.edu.ingsoft.model.Publication;
-import bo.ucb.edu.ingsoft.model.Transaction;
+import bo.ucb.edu.ingsoft.model.*;
 import bo.ucb.edu.ingsoft.util.StorageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -108,6 +106,15 @@ public class PublicationBl {
         publication.setIdPublication(idPublication);
         publication.setTransaction(transaction);
         publicationDao.delete(publication);
+    }
+    public List<Color> getColors(){
+        return publicationDao.colors();
+    }
+    public List<Brand> getBrands(){
+        return publicationDao.brands();
+    }
+    public List<City> getCities(){
+        return publicationDao.citys();
     }
 
 

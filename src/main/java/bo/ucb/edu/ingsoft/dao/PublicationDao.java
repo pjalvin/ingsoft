@@ -1,9 +1,8 @@
 package bo.ucb.edu.ingsoft.dao;
 
 import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
-import bo.ucb.edu.ingsoft.model.ImagePublication;
+import bo.ucb.edu.ingsoft.model.*;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
-import bo.ucb.edu.ingsoft.model.Publication;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.ArrayList;
@@ -17,6 +16,9 @@ public interface PublicationDao {
     public void createImagePublication(List<ImagePublication> imagePublications);
 
     public List<PublicationSimpleRequest> publications(PublicationRequest publicationRequest, Integer i, Integer n);
+    public List<Color> colors();
+    public List<City> citys();
+    public List<Brand> brands();
 
 
 }

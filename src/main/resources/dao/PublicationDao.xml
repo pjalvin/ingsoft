@@ -41,8 +41,36 @@
 
 
 
-
-
+    <resultMap type="bo.ucb.edu.ingsoft.model.Color" id="colorsMap">
+        <result column="idColor" property="idColor"/>
+        <result column="color" property="color"/>
+    </resultMap>
+    <select  id="colors" resultMap="colorsMap">
+        SELECT id_color idColor,
+               color
+               from color
+               where color.status=1
+    </select>
+    <resultMap type="bo.ucb.edu.ingsoft.model.City" id="citysMap">
+        <result column="idCity" property="idCity"/>
+        <result column="city" property="city"/>
+    </resultMap>
+    <select  id="citys" resultMap="citysMap">
+        SELECT id_city idCity,
+               city
+               from city
+               where city.status=1
+    </select>
+    <resultMap type="bo.ucb.edu.ingsoft.model.Brand" id="brandsMap">
+        <result column="idBrand" property="idBrand"/>
+        <result column="brand" property="brand"/>
+    </resultMap>
+    <select  id="brands" resultMap="brandsMap">
+        SELECT brand.id_brand idBrand,
+               brand.brand
+               from brand
+               where brand.status=1
+    </select>
     <select id="searchPublication" resultType="bo.ucb.edu.ingsoft.dto.PublicationRequest">
         SELECT
             id_publication as idPublication,

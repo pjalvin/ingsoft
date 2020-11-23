@@ -3,12 +3,10 @@ package bo.ucb.edu.ingsoft.model;
 public class Color {
     private Integer IdColor;
     private String Color;
-    private Integer Status;
 
-    public Color(Integer idColor, String color, Integer status) {
+    public Color(Integer idColor, String color) {
         IdColor = idColor;
         Color = color;
-        Status = status;
     }
 
     public Integer getIdColor() {
@@ -27,20 +25,11 @@ public class Color {
         Color = color;
     }
 
-    public Integer getStatus() {
-        return Status;
-    }
-
-    public void setStatus(Integer status) {
-        Status = status;
-    }
-
     @Override
     public String toString() {
         return "Color{" +
                 "IdColor=" + IdColor +
                 ", Color='" + Color + '\'' +
-                ", Status=" + Status +
                 '}';
     }
 }

@@ -5,13 +5,17 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:8080/publications/brands
+Accept: application/json
+Content-Type: application/json
 
+
+###
 POST http://localhost:8080/publications
 Accept: application/json
 Content-Type: application/json
 
 {
-  "idSeller": 1,
   "idBrand": 1,
   "idColor": 1,
   "idCity": 1,

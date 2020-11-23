@@ -3,6 +3,9 @@ package bo.ucb.edu.ingsoft.api;
 import bo.ucb.edu.ingsoft.bl.PublicationBl;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
+import bo.ucb.edu.ingsoft.model.Brand;
+import bo.ucb.edu.ingsoft.model.City;
+import bo.ucb.edu.ingsoft.model.Color;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.slf4j.Logger;
@@ -45,6 +48,8 @@ public class PublicationApi {
     public PublicationRequest create(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
+        publicationRequest.setIdSeller(1);
+        System.out.println(publicationRequest);
         publicationBl.create(publicationRequest,transaction);
         return publicationRequest;
     }
@@ -68,5 +73,17 @@ public class PublicationApi {
         Transaction transaction = transactionUtil.createTransaction(request);
         publicationBl.update(publicationRequest,transaction);
         return publicationRequest;
+    }
+    @RequestMapping(path = "colors", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Color> getColors(){
+        return publicationBl.getColors();
+    }
+    @RequestMapping(path = "brands", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Brand> getBrands(){
+        return publicationBl.getBrands();
+    }
+    @RequestMapping(path = "cities", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<City> getCities(){
+        return publicationBl.getCities();
     }
 }
