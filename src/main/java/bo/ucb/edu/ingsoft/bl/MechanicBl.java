@@ -32,9 +32,6 @@ public class MechanicBl {
         return mechanic;
     }
 
-    public MechanicContactRequest mechanicContact(Integer idMechanic) {
-        return mechanicDao.mechanicContact(idMechanic);
-    }
 
     public QualifyMechanicRequest qualifyMechanic(QualifyMechanicRequest qualifyMechanicRequest, Transaction transaction){
 

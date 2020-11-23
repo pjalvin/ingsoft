@@ -40,11 +40,6 @@ public class MechanicApi {
         return mechanic;
     }
 
-    @RequestMapping(path = "/contact", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public MechanicContactRequest mechanicContact(HttpServletRequest request, @RequestParam Integer idMechanic){
-        return mechanicBl.mechanicContact(idMechanic);
-    }
-
     @RequestMapping(method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
     public QualifyMechanicRequest qualifyMechanic(@RequestBody QualifyMechanicRequest qualifyMechanicRequest ,HttpServletRequest request){
         TransactionUtil transactionUtil = new TransactionUtil();

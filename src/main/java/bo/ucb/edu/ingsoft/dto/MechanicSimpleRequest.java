@@ -5,6 +5,7 @@ public class MechanicSimpleRequest {
     private String location;
     private String shopName;
     private Integer stars;
+    private String shopPhoneNumber;
 
     public MechanicSimpleRequest() {
     }
@@ -41,6 +42,14 @@ public class MechanicSimpleRequest {
         this.stars = stars;
     }
 
+    public String getShopPhoneNumber() {
+        return shopPhoneNumber;
+    }
+
+    public void setShopPhoneNumber(String shopPhoneNumber) {
+        this.shopPhoneNumber = shopPhoneNumber;
+    }
+
     @Override
     public String toString() {
         return "MechanicSimpleRequest{" +
@@ -48,6 +57,7 @@ public class MechanicSimpleRequest {
                 ", location='" + location + '\'' +
                 ", shopName='" + shopName + '\'' +
                 ", stars=" + stars +
+                ", shopPhoneNumber='" + shopPhoneNumber + '\'' +
                 '}';
     }
 }
