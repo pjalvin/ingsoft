@@ -182,7 +182,7 @@ CREATE TABLE publication (
     id_color int NOT NULL,
     id_city int NOT NULL,
     title varchar(100) NOT NULL,
-    model int NOT NULL,
+    model int NULL,
     door_number int NULL,
     license_plate varchar(50) NULL,
     description varchar(255) NULL,
