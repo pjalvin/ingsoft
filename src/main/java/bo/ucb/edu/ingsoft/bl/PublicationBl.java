@@ -119,10 +119,13 @@ public class PublicationBl {
 
 
     public PublicationViewRequest publicationsView(Integer idPublication) {
-        return publicationDao.publicationView(idPublication);
+        PublicationViewRequest publicationViewRequest=publicationDao.publicationView(idPublication);
+        if(publicationViewRequest!=null)
+        publicationViewRequest.setImages(publicationDao.publicationPaths(idPublication));
+        return publicationViewRequest;
     }
 
-    public List<PublicationSimpleRequest> publicationsPaths(Integer idPublication) {
+    /*public List<PublicationSimpleRequest> publicationsPaths(Integer idPublication) {
         return publicationDao.publicationPaths(idPublication);
-    }
+    }*/
 }

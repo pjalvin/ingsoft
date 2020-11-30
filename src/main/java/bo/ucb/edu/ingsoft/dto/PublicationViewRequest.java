@@ -1,5 +1,7 @@
 package bo.ucb.edu.ingsoft.dto;
 
+import java.util.List;
+
 public class PublicationViewRequest {
 
     private String title;
@@ -18,6 +20,7 @@ public class PublicationViewRequest {
     private Integer idSeller;
     private String City; // id
     private Integer idCity;
+    private List<ImagePath> images;
 
     public PublicationViewRequest() {
     }
@@ -142,6 +145,14 @@ public class PublicationViewRequest {
         this.idCity = idCity;
     }
 
+    public List<ImagePath> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ImagePath> images) {
+        this.images = images;
+    }
+
     @Override
     public String toString() {
         return "PublicationViewRequest{" +
@@ -160,6 +171,7 @@ public class PublicationViewRequest {
                 ", idSeller=" + idSeller +
                 ", City='" + City + '\'' +
                 ", idCity=" + idCity +
+                ", images=" + images +
                 '}';
     }
 }

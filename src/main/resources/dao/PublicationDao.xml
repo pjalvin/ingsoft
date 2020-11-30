@@ -107,24 +107,19 @@
                where brand.status=1
     </select>
 
-    <resultMap type="bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest" id="publicationMap">
-        <result column="idPublication" property="idPublication"/>
-        <result column="imagePath" property="imagePath"/>
-        <result column="title" property="title"/>
-        <result column="price" property="price"/>
+    <resultMap type="bo.ucb.edu.ingsoft.dto.ImagePath" id="publicationPathsMap">
+        <result column="path" property="path"/>
     </resultMap>
-    <select id="publicationPaths" resultMap="publicationMap">
+    <select id="publicationPaths" resultMap="publicationPathsMap">
         SELECT
-        b.id_publication as idPublication,
-        b.path as imagePath,
-        a.title as title,
-        a.price as price
-        FROM publication a,image_publication b
+        ipub.path as path
+        FROM publication pub
+        INNER JOIN image_publication ipub on
+        pub.id_publication=ipub.id_publication
         WHERE
-        b.status=1
-        and a.status=1
-        AND b.id_publication=#{idPublication}
-        AND a.id_publication=b.id_publication
+        pub.status=1
+        and ipub.status=1
+        AND pub.id_publication=#{idPublication}
     </select>
 
 
