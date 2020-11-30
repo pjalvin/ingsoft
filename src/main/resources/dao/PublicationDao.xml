@@ -72,10 +72,6 @@
         id_publication=#{idPublication} and
         status=1
     </update>
-
-
-
-
     <resultMap type="bo.ucb.edu.ingsoft.model.Color" id="colorsMap">
         <result column="idColor" property="idColor"/>
         <result column="color" property="color"/>
@@ -201,6 +197,9 @@
             <if test="publicationRequest.doorNumber!=null and publicationRequest.idPublication==null">
                 AND publication.door_number=#{publicationRequest.doorNumber}
             </if>
+            <if test="publicationRequest.title!=null and publicationRequest.idPublication==null">
+                AND publication.title=#{publicationRequest.title}
+            </if>
             <if test="publicationRequest.idPublication!=null">
                 AND publication.id_publication=#{publicationRequest.idPublication}
             </if>
@@ -212,12 +211,5 @@
         <if test="publicationRequest.idPublication==null">
             LIMIT #{n} OFFSET #{i}
         </if>
-
     </select>
-
-
-
-
-
-
 </mapper>
