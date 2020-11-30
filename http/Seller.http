@@ -8,6 +8,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
+  "idSeller": 4,
+  "idPerson": 4,
+  "idUser": 4,
   "password": "12345",
   "email": "456985",
   "firstName": "Silvana Stephanie",
