@@ -130,11 +130,11 @@ INSERT  INTO person VALUES
 (10, "Juana","Castro","7612586",1,now(),1,"192.168.10.1",now());
 
 INSERT INTO seller VALUES
-(1,1,1,1,"https://cdn.pixabay.com/photo/2016/11/29/03/36/beautiful-1867093_1280.jpg",now(),1,"192.168.10.1",now()),
-(2,2,2,1,"https://cdn.pixabay.com/photo/2016/01/19/15/05/doctor-1149149_1280.jpg",now(),1,"192.168.10.1",now()),
-(3,3,3,1,"https://cdn.pixabay.com/photo/2019/02/11/20/20/woman-3990680_1280.jpg",now(),1,"192.168.10.1",now()),
-(4,4,4,1,"https://cdn.pixabay.com/photo/2017/08/30/17/27/business-woman-2697954_960_720.jpg",now(),1,"192.168.10.1",now()),
-(5,5,5,1,"https://cdn.pixabay.com/photo/2016/11/29/03/36/beautiful-1867093_1280.jpg",now(),1,"192.168.10.1",now());
+(1,1,1,1,"vacio",now(),1,"192.168.10.1",now()),
+(2,2,2,1,"vacio",now(),1,"192.168.10.1",now()),
+(3,3,3,1,"vacio",now(),1,"192.168.10.1",now()),
+(4,4,4,1,"vacio",now(),1,"192.168.10.1",now()),
+(5,5,5,1,"vacio",now(),1,"192.168.10.1",now());
 
 INSERT INTO city VALUES
 (NULL,'La Paz',1,NOW(),1,'192.168.10.215',NOW()),

@@ -38,8 +38,10 @@ public class PublicationApi {
                                                              @RequestParam(required = false) Integer model,
                                                              @RequestParam(required = false) Integer idBrand,
                                                              @RequestParam(required = false) Integer doorNumber,
-                                                             @RequestParam(required = false) Integer idCity){
-        return publicationBl.publications(idPublication,i,n,idColor,model,idBrand,doorNumber,idCity);
+                                                             @RequestParam(required = false) Integer idCity,
+                                                             @RequestParam(required = false) String title
+    ){
+        return publicationBl.publications(idPublication,i,n,idColor,model,idBrand,doorNumber,idCity,title);
     }
 
     @RequestMapping(path = "idd", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

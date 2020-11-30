@@ -1,4 +1,4 @@
-GET http://localhost:8080/publications/?n=5&i=0
+GET http://localhost:8080/publications/?n=5&i=0&title=Title 4
 Accept: application/json
 Content-Type: application/json
 
@@ -19,7 +19,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/publications/cities
+GET http://localhost:8080/publications/colors
 Accept: application/json
 Content-Type: application/json
 
