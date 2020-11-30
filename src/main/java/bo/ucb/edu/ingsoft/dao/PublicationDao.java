@@ -20,7 +20,7 @@ public interface PublicationDao {
 
     public List<PublicationSimpleRequest> publications(PublicationRequest publicationRequest, Integer i, Integer n);
     public List<Color> colors();
-    public List<City> citys();
+    public List<City> cities();
     public List<Brand> brands();
 
 }

@@ -6,15 +6,18 @@ public class PublicationViewRequest {
     private String description;
     private double price;
     private String brand;//id
+    private Integer idBrand;
     private Integer model;
     private String licensePlate;
     private String Color;//id
+    private Integer idColor;
     private String motor;
     private String phoneNumber;
 
     private Integer doorNumber;
     private Integer idSeller;
     private String City; // id
+    private Integer idCity;
 
     public PublicationViewRequest() {
     }
@@ -115,6 +118,30 @@ public class PublicationViewRequest {
         City = city;
     }
 
+    public Integer getIdBrand() {
+        return idBrand;
+    }
+
+    public void setIdBrand(Integer idBrand) {
+        this.idBrand = idBrand;
+    }
+
+    public Integer getIdColor() {
+        return idColor;
+    }
+
+    public void setIdColor(Integer idColor) {
+        this.idColor = idColor;
+    }
+
+    public Integer getIdCity() {
+        return idCity;
+    }
+
+    public void setIdCity(Integer idCity) {
+        this.idCity = idCity;
+    }
+
     @Override
     public String toString() {
         return "PublicationViewRequest{" +
@@ -122,14 +149,17 @@ public class PublicationViewRequest {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", brand='" + brand + '\'' +
+                ", idBrand=" + idBrand +
                 ", model=" + model +
                 ", licensePlate='" + licensePlate + '\'' +
                 ", Color='" + Color + '\'' +
+                ", idColor=" + idColor +
                 ", motor='" + motor + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", doorNumber=" + doorNumber +
                 ", idSeller=" + idSeller +
-                ", idCity=" + City +
+                ", City='" + City + '\'' +
+                ", idCity=" + idCity +
                 '}';
     }
 }

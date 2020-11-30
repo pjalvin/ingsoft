@@ -114,7 +114,7 @@ public class PublicationBl {
         return publicationDao.brands();
     }
     public List<City> getCities(){
-        return publicationDao.citys();
+        return publicationDao.cities();
     }
 
 

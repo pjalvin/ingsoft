@@ -16,20 +16,30 @@
             a.description as description,
             a.price as price,
             b.brand as brand,
+            b.id_brand as idBrand,
             a.model as model,
             a.license_plate as licensePlate,
             e.color as color,
+            e.id_color as idColor,
             a.motor as motor,
             d.phone_number as phoneNumber,
-
             a.door_number as doorNumber,
             a.id_seller as idSeller,
-            f.city as City
-               from publication a,brand b ,seller c, person d, color e,city f
-               where a.id_publication=#{idPublication} AND a.status=1
-               AND a.id_brand=b.id_brand AND a.id_seller=c.id_seller
-               AND c.id_person=d.id_person AND a.id_color=e.id_color
-               AND a.id_city=f.id_city
+            f.city as City,
+            f.id_city as idCity
+           from publication a
+           INNER JOIN brand b on
+           a.id_brand=b.id_brand
+           INNER JOIN seller c on
+           a.id_seller=c.id_seller
+           INNER JOIN person d on
+           c.id_person=d.id_person
+           INNER JOIN color e on
+           a.id_color=e.id_color
+           INNER JOIN city f on
+           a.id_city=f.id_city
+           where a.id_publication=#{idPublication}
+           AND a.status=1
     </select>
 
     <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Publication">
@@ -76,11 +86,11 @@
                from color
                where color.status=1
     </select>
-    <resultMap type="bo.ucb.edu.ingsoft.model.City" id="citysMap">
+    <resultMap type="bo.ucb.edu.ingsoft.model.City" id="citiesMap">
         <result column="idCity" property="idCity"/>
         <result column="city" property="city"/>
     </resultMap>
-    <select  id="citys" resultMap="citysMap">
+    <select  id="cities" resultMap="citiesMap">
         SELECT id_city idCity,
                city
                from city
