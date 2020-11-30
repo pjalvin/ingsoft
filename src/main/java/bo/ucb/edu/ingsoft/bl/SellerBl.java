@@ -103,8 +103,8 @@ public class SellerBl {
         sellerDao.updateImage(seller);
     }
 
-    public List<PublicationSimpleRequest> publications(Integer idSeller){
-        List<PublicationSimpleRequest> publications=sellerDao.publications(idSeller);
+    public List<PublicationSimpleRequest> publications(Integer idSeller,Integer i,Integer n){
+        List<PublicationSimpleRequest> publications=sellerDao.publications(idSeller,i,n);
         return publications;
     }
 }

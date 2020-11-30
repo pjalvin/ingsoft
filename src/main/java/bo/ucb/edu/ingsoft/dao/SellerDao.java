@@ -14,6 +14,6 @@ public interface SellerDao {
     public void createSeller(Seller seller);
     public void updateSeller(Seller seller);
     public void updateImage(Seller seller);
-    public List<PublicationSimpleRequest> publications(Integer idSeller);
+    public List<PublicationSimpleRequest> publications(Integer idSeller,Integer i,Integer n);
 
 }

@@ -70,5 +70,7 @@
                   FROM image_publication
                   WHERE image_publication.id_publication=publication.id_publication
                 )
+            LIMIT #{n} OFFSET #{i}
+
     </select>
 </mapper>

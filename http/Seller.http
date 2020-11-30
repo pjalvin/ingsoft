@@ -43,5 +43,5 @@ Content-Type: application/json
   "imagePath": "hello.com"
 }
 ###
-GET http://localhost:8080/seller/publications
+GET http://localhost:8080/seller/publications?i=1&n=3
 Accept: application/json
