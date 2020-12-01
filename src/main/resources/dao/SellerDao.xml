@@ -51,8 +51,9 @@
     </resultMap>
     <select id="publications" resultMap="publicationsMap">
         SELECT
+
                publication.id_publication as idPublication,
-               image_publication.path as imagePath,
+               MIN(image_publication.path) as imagePath,
                title as title,
                price as price
         FROM publication
@@ -65,12 +66,8 @@
             and image_publication.status=1
             and publication.status=1
             and seller.status=1
-            and image_publication.id_image_publication IN(
-                  SELECT MIN(id_image_publication)
-                  FROM image_publication
-                  WHERE image_publication.id_publication=publication.id_publication
-                )
-            LIMIT #{n} OFFSET #{i}
+        GROUP BY publication.id_publication
+        LIMIT #{n} OFFSET #{i}
 
     </select>
 </mapper>

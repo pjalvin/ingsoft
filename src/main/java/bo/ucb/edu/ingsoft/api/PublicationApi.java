@@ -1,6 +1,7 @@
 package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.PublicationBl;
+import bo.ucb.edu.ingsoft.dto.ImagePublicationRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationViewRequest;
@@ -60,7 +61,6 @@ public class PublicationApi {
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
         publicationRequest.setIdSeller(1);
-        System.out.println(publicationRequest);
         publicationBl.create(publicationRequest,transaction);
         return publicationRequest;
     }
@@ -70,6 +70,13 @@ public class PublicationApi {
         Transaction transaction = transactionUtil.createTransaction(request);
         publicationBl.uploadImages(images,idPublication,transaction);
         return "Imagenes subidas correctamente";
+    }
+    @RequestMapping(path="images" ,method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String deleteImages( @RequestBody List<ImagePublicationRequest> imagesDelete,HttpServletRequest request){
+        TransactionUtil transactionUtil=new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        publicationBl.deleteImages(imagesDelete,transaction);
+        return "Imagenes eliminadas correctamente";
     }
     @RequestMapping(method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public String delete(@RequestParam Integer idPublication, HttpServletRequest request) {

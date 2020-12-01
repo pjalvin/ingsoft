@@ -1,11 +1,11 @@
-GET http://localhost:8080/publications/?n=5&i=0&title=Title 4
+GET http://localhost:8080/publications/?n=5&i=0
 Accept: application/json
 Content-Type: application/json
 
 
 ###
 
-GET http://localhost:8080/publications/idd?idPublication=35
+GET http://localhost:8080/publications/idd?idPublication=3
 Accept: application/json
 Content-Type: application/json
 

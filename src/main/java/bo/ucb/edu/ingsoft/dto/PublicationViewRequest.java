@@ -20,7 +20,7 @@ public class PublicationViewRequest {
     private Integer idSeller;
     private String City; // id
     private Integer idCity;
-    private List<ImagePath> images;
+    private List<ImagePublicationRequest> images;
 
     public PublicationViewRequest() {
     }
@@ -145,11 +145,11 @@ public class PublicationViewRequest {
         this.idCity = idCity;
     }
 
-    public List<ImagePath> getImages() {
+    public List<ImagePublicationRequest> getImages() {
         return images;
     }
 
-    public void setImages(List<ImagePath> images) {
+    public void setImages(List<ImagePublicationRequest> images) {
         this.images = images;
     }
 

@@ -72,6 +72,16 @@
         id_publication=#{idPublication} and
         status=1
     </update>
+    <update id="deleteImagePublication" parameterType="bo.ucb.edu.ingsoft.model.ImagePublication">
+        UPDATE image_publication set
+        status=0,
+        tx_id_user=#{transaction.txIdUser},
+        tx_host=#{transaction.txHost},
+        tx_update=#{transaction.txUpdate}
+        WHERE
+        id_image_publication=#{idImagePublication} and
+        status=1
+    </update>
     <resultMap type="bo.ucb.edu.ingsoft.model.Color" id="colorsMap">
         <result column="idColor" property="idColor"/>
         <result column="color" property="color"/>
@@ -103,11 +113,13 @@
                where brand.status=1
     </select>
 
-    <resultMap type="bo.ucb.edu.ingsoft.dto.ImagePath" id="publicationPathsMap">
+    <resultMap type="bo.ucb.edu.ingsoft.dto.ImagePublicationRequest" id="publicationPathsMap">
+        <result column="idImagePublication" property="idImagePublication"/>
         <result column="path" property="path"/>
     </resultMap>
     <select id="publicationPaths" resultMap="publicationPathsMap">
         SELECT
+        ipub.id_image_publication as idImagePublication,
         ipub.path as path
         FROM publication pub
         INNER JOIN image_publication ipub on

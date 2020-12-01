@@ -2,6 +2,7 @@ package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.PublicationDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
+import bo.ucb.edu.ingsoft.dto.ImagePublicationRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationViewRequest;
@@ -89,6 +90,22 @@ public class PublicationBl {
         publicationDao.update(publication);
         return publicationRequest;
     }
+    public boolean deleteImages( List<ImagePublicationRequest> imagesDelete,Transaction transaction){
+        try{
+            imagesDelete.forEach((image)->{
+                ImagePublication imagePublication=new ImagePublication();
+                imagePublication.setIdImagePublication(image.getIdImagePublication());
+                imagePublication.setPath(image.getPath());
+                imagePublication.setTransaction(transaction);
+                System.out.println(imagePublication);
+                publicationDao.deleteImagePublication(imagePublication);
+            });
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
     public void uploadImages(MultipartFile[] images,Integer idPublication,Transaction transaction){
         List<ImagePublication> imagePublications=new ArrayList<>();
         Arrays.asList(images).stream().forEach(image -> {
@@ -100,7 +117,8 @@ public class PublicationBl {
             imagePublication.setTransaction(transaction);
             imagePublications.add(imagePublication);
         });
-        publicationDao.createImagePublication(imagePublications);
+        if(images.length>0){
+        publicationDao.createImagePublication(imagePublications);}
     }
     public void delete(Integer idPublication, Transaction transaction){
         Publication publication= new Publication();
