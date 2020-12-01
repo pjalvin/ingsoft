@@ -27,7 +27,7 @@ public class SellerApi {
     }
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public SellerRequest findById( HttpServletRequest request) {
-        int userId=0;
+        Integer userId=2;
         return sellerBl.findSellerById(userId);
     }
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)

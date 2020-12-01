@@ -25,7 +25,7 @@
         INNER JOIN person p on
         s.id_person=p.id_person
         WHERE
-            s.id_user = 2 and
+            s.id_user = #{sellerId} and
             s.status = 1 and
             u.status = 1 and
             p.status = 1
