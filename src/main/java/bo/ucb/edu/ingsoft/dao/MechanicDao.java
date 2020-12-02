@@ -1,6 +1,5 @@
 package bo.ucb.edu.ingsoft.dao;
 
-import bo.ucb.edu.ingsoft.dto.MechanicContactRequest;
 import bo.ucb.edu.ingsoft.dto.MechanicSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.QualifyMechanicRequest;
 import bo.ucb.edu.ingsoft.model.Mechanic;

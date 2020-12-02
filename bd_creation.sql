@@ -279,3 +279,4 @@ ALTER TABLE seller ADD CONSTRAINT seller_user FOREIGN KEY seller_user (id_user)
 ALTER TABLE star ADD CONSTRAINT unic_id UNIQUE(id_user,id_mechanic)
 -- End of file.
 
+UPDATE seller SET image_path='vacio'
