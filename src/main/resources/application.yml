@@ -30,3 +30,4 @@ mybatis:
   log4j:
     logger:
       bo.ucb.edu.ingsoft.dao.PublicationDao=DEBUG
+

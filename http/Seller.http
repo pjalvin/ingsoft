@@ -1,3 +1,13 @@
+POST http://localhost:8080/user/signin
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "pomaalvin@gmail.com",
+  "password": "1234abc"
+}
+
+###
 GET http://localhost:8080/seller
 Accept: application/json
 
@@ -6,7 +16,6 @@ Accept: application/json
 POST http://localhost:8080/seller
 Accept: application/json
 Content-Type: application/json
-
 {
   "idSeller": 4,
   "idPerson": 4,

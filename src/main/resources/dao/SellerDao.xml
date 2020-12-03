@@ -25,10 +25,18 @@
         INNER JOIN person p on
         s.id_person=p.id_person
         WHERE
-            s.id_user = #{sellerId} and
+            s.id_seller = #{sellerId} and
             s.status = 1 and
             u.status = 1 and
             p.status = 1
+    </select>
+    <select id="findByUserId" resultType="bo.ucb.edu.ingsoft.dto.UserRequest">
+        SELECT
+               s.id_seller as idSeller
+        FROM seller s
+        WHERE
+            s.id_user = #{userId} and
+            s.status = 1
     </select>
     <update id="updateSeller" parameterType="bo.ucb.edu.ingsoft.model.Seller">
         UPDATE seller SET
