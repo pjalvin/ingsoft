@@ -21,7 +21,7 @@
     </insert>
     <update id="updatePerson" parameterType="bo.ucb.edu.ingsoft.model.Person">
         UPDATE person SET
-        id_person=#{idPerson}, first_name=#{firstName},last_name=#{lastName},phone_number=#{phoneNumber},status=1,tx_date=#{transaction.txDate},
+        first_name=#{firstName},last_name=#{lastName},phone_number=#{phoneNumber},
         tx_id_user=#{transaction.txIdUser},tx_host=#{transaction.txHost},tx_update=#{transaction.txUpdate}
         WHERE id_person=#{idPerson} and
             status = 1

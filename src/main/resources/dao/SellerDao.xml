@@ -40,7 +40,7 @@
     </select>
     <update id="updateSeller" parameterType="bo.ucb.edu.ingsoft.model.Seller">
         UPDATE seller SET
-        id_seller=#{idSeller},id_person=#{idPerson},id_user=#{idUser},status=1,image_path=#{imagePath}, tx_date=#{transaction.txDate},
+        status=1,image_path=#{imagePath}, tx_date=#{transaction.txDate},
         tx_id_user=#{transaction.txIdUser},tx_host=#{transaction.txHost},tx_update=#{transaction.txUpdate}
         WHERE id_seller=#{idSeller} and
             status = 1

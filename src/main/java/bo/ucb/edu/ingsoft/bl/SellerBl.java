@@ -70,31 +70,16 @@ public class SellerBl {
         return sellerRequest;
     }
     public SellerRequest update(SellerRequest sellerRequest, Transaction transaction){
-        Seller seller = new Seller();
+        SellerRequest sellerRe = sellerDao.findBySellerId(userUtil.getIdSeller());
+        Seller seller=new Seller();
         Person person = new Person();
-        User user =new User();
-        user.setPassword(sellerRequest.getPassword());
-        user.setEmail(sellerRequest.getEmail());
-        user.setIdUser(sellerRequest.getIdUser());
-        user.setTransaction(transaction);
-
-        userDao.updateUser(user);
-
         person.setFirstName(sellerRequest.getFirstName());
         person.setLastName(sellerRequest.getLastName());
         person.setPhoneNumber(sellerRequest.getPhoneNumber());
-        person.setIdPerson(sellerRequest.getIdPerson());
+        person.setIdPerson(sellerRe.getIdPerson());
         person.setTransaction(transaction);
 
         personDao.updatePerson(person);
-
-        seller.setIdSeller(sellerRequest.getIdSeller());
-        seller.setIdUser(sellerRequest.getIdUser());
-        seller.setIdPerson(sellerRequest.getIdPerson());
-        seller.setImagePath(sellerRequest.getImagePath());
-        seller.setTransaction(transaction);
-
-        sellerDao.updateSeller(seller);
 
         return sellerRequest;
     }

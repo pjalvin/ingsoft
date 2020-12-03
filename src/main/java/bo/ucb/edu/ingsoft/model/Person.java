@@ -7,6 +7,7 @@ public class Person {
     private String phoneNumber;
     private Integer status;
     private Transaction transaction;
+    private Integer idSeller;
 
     public Person() {
 
@@ -60,6 +61,14 @@ public class Person {
         this.transaction = transaction;
     }
 
+    public Integer getIdSeller() {
+        return idSeller;
+    }
+
+    public void setIdSeller(Integer idSeller) {
+        this.idSeller = idSeller;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -69,6 +78,7 @@ public class Person {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", status=" + status +
                 ", transaction=" + transaction +
+                ", idSeller=" + idSeller +
                 '}';
     }
 }
