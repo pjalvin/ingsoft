@@ -8,6 +8,7 @@ import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationViewRequest;
 import bo.ucb.edu.ingsoft.model.*;
 import bo.ucb.edu.ingsoft.util.StorageUtil;
+import bo.ucb.edu.ingsoft.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -40,8 +41,8 @@ public class PublicationBl {
         publicationRequest.setIdCity(idCity);
 
         publicationRequest.setTitle(title);
-
-        return publicationDao.publications(publicationRequest,i,n);
+        Integer idSeller=new UserUtil().getIdSeller();
+        return publicationDao.publications(publicationRequest,i,n,idSeller);
     }
 
 

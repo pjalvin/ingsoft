@@ -19,7 +19,7 @@ public interface PublicationDao {
     public PublicationViewRequest publicationView(Integer idPublication);
     public List<ImagePublicationRequest> publicationPaths(Integer idPublication);
 
-    public List<PublicationSimpleRequest> publications(PublicationRequest publicationRequest, Integer i, Integer n);
+    public List<PublicationSimpleRequest> publications(PublicationRequest publicationRequest, Integer i, Integer n,Integer sellerId);
     public List<Color> colors();
     public List<City> cities();
     public List<Brand> brands();

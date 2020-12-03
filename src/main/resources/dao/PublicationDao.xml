@@ -214,6 +214,7 @@
         SELECT MIN(id_image_publication)
         FROM image_publication
         WHERE image_publication.id_publication=publication.id_publication
+        AND publication.id_seller!=#{sellerId}
         )
         <if test="publicationRequest.idPublication==null">
             LIMIT #{n} OFFSET #{i}
