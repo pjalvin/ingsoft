@@ -10,6 +10,7 @@ import bo.ucb.edu.ingsoft.model.City;
 import bo.ucb.edu.ingsoft.model.Color;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
+import bo.ucb.edu.ingsoft.util.UserUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -60,7 +61,8 @@ public class PublicationApi {
     public PublicationRequest create(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
-        publicationRequest.setIdSeller(1);
+        UserUtil userUtil=new UserUtil();
+        publicationRequest.setIdSeller(userUtil.getIdSeller());
         publicationBl.create(publicationRequest,transaction);
         return publicationRequest;
     }

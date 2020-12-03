@@ -5,6 +5,7 @@ import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.SellerRequest;
 import bo.ucb.edu.ingsoft.model.Seller;
 import bo.ucb.edu.ingsoft.model.Transaction;
+import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import bo.ucb.edu.ingsoft.util.UserUtil;
 import org.slf4j.Logger;
@@ -59,7 +60,8 @@ public class SellerApi {
     public List<PublicationSimpleRequest> publications(@RequestParam(required = true) Integer i,
                                                        @RequestParam(required = true) Integer n,
                                                        HttpServletRequest request) {
-        Integer idSeller=1;
+        UserUtil userUtil=new UserUtil();
+        Integer idSeller=userUtil.getIdSeller();
         List<PublicationSimpleRequest> pubSeller=sellerBl.publications(idSeller,i,n);
         return pubSeller;
     }
