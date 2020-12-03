@@ -35,6 +35,7 @@ public class LoginApi {
     }
     @RequestMapping(path="signin",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
     public UserRequest SignIn(@RequestBody UserRequest userRequest, HttpServletRequest request) {
+        System.out.println(userRequest);
         TransactionUtil transactionUtil = new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
 

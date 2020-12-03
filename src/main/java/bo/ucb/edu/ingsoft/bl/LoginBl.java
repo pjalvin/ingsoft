@@ -68,6 +68,8 @@ public class LoginBl {
         UserRequest userInfo=loginDao.findByEmail(userRequest.getEmail());
         if(userInfo!=null){
             if(encoder.matches(userRequest.getPassword(),userInfo.getPassword())){
+                UserRequest userSeller=sellerDao.findByUserId(userInfo.getIdUser());
+                userInfo.setIdSeller(userSeller.getIdSeller());
                 userInfo.setPassword("");
                 JWTUtil jwtUtil=new JWTUtil();
                 String token = jwtUtil.getJWTToken(userInfo);
@@ -75,7 +77,7 @@ public class LoginBl {
                 return userInfo;
             }
             else{
-                throw new RuntimeException("No existe el usuario");
+                throw new RuntimeException("Error en las credenciales");
             }
         }
         else{
