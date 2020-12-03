@@ -8,6 +8,7 @@ import bo.ucb.edu.ingsoft.dto.QualifyMechanicRequest;
 import bo.ucb.edu.ingsoft.model.Mechanic;
 import bo.ucb.edu.ingsoft.model.Star;
 import bo.ucb.edu.ingsoft.model.Transaction;
+import bo.ucb.edu.ingsoft.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,8 +36,8 @@ public class MechanicBl {
     public QualifyMechanicRequest qualifyMechanic(QualifyMechanicRequest qualifyMechanicRequest, Transaction transaction){
 
         Star star = new Star();
-
-        star.setIdUser(qualifyMechanicRequest.getIdUser());
+        UserUtil userUtil=new UserUtil();
+        star.setIdUser(userUtil.getIdUser());
         star.setIdMechanic(qualifyMechanicRequest.getIdMechanic());
         star.setScore(qualifyMechanicRequest.getScore());
         star.setTransaction(transaction);
