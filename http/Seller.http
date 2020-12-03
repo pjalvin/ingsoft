@@ -3,7 +3,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "pomaalvin@gmail.com",
+  "email": "erwin@gmail.com",
   "password": "1234abc"
 }
 
@@ -47,8 +47,8 @@ Content-Type: application/json
   "idSeller": 4,
   "idPerson": 4,
   "idUser": 4,
-  "password": "456987",
-  "email": "jhf@gmail.com",
+  "password": "1234abc",
+  "email": "erwin@gmail.com",
   "firstName": "Silvana Stephanie",
   "lastName": "Munoz",
   "phoneNumber": "456321",
