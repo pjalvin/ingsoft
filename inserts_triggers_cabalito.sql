@@ -122,12 +122,7 @@ INSERT  INTO person VALUES
 (2, "Jose","Poma","7612595",1,now(),1,"192.168.10.1",now()),
 (3, "Johana","Sanchez","7155986",1,now(),1,"192.168.10.1",now()),
 (4, "Maria","Paredes","7523495",1,now(),1,"192.168.10.1",now()),
-(5, "Juana","Castro","7612586",1,now(),1,"192.168.10.1",now()),
-(6, "Juan","Martinez","7412586",1,now(),1,"192.168.10.1",now()),
-(7, "Jose","Poma","7612595",1,now(),1,"192.168.10.1",now()),
-(8, "Johana","Sanchez","7155986",1,now(),1,"192.168.10.1",now()),
-(9, "Maria","Paredes","7523495",1,now(),1,"192.168.10.1",now()),
-(10, "Juana","Castro","7612586",1,now(),1,"192.168.10.1",now());
+(5, "Juana","Castro","7612586",1,now(),1,"192.168.10.1",now());
 
 INSERT INTO seller VALUES
 (1,1,1,1,"vacio",now(),1,"192.168.10.1",now()),
@@ -158,7 +153,12 @@ INSERT INTO color VALUES
 (null,'Rojo',1,NOW(),1,'172.0.0.1',NOW()),
 (null,'Verde',1,NOW(),1,'172.0.0.1',NOW()),
 (null,'Amarillo',1,NOW(),1,'172.0.0.1',NOW()),
-(null,'Negro',1,NOW(),1,'172.0.0.1',NOW());
+(null,'Negro',1,NOW(),1,'172.0.0.1',NOW()),
+
+(null,'Blanco',1,NOW(),1,'172.0.0.1',NOW()),
+(null,'Gris',1,NOW(),1,'172.0.0.1',NOW()),
+(null,'Cafe',1,NOW(),1,'172.0.0.1',NOW()),
+(null,'Naranja',1,NOW(),1,'172.0.0.1',NOW());
 COMMIT;
 
 START TRANSACTION;
@@ -171,11 +171,11 @@ INSERT INTO publication VALUES
 COMMIT;
 
 INSERT INTO mechanic VALUES
-(NULL,6,1,'Av. 20 de Octubre','Fierro Veloz','22015478',0,0,1,NOW(),1,'192.168.10.215',NOW()),
-(NULL,7,2,'Av. Alemana','Taller Iwanaga','25634857',0,0,1,NOW(),1,'192.168.10.215',NOW()),
-(NULL,8,3,'Av. Busch','Taller Brillante','25639845',0,0,1,NOW(),1,'192.168.10.215',NOW()),
-(NULL,9,4,'Av. Los Sargentos','Taller El Tuercas','23561547',0,0,1,NOW(),1,'192.168.10.215',NOW()),
-(NULL,10,5,'Av. Landaeta','Solo Autos','22365894',0,0,1,NOW(),1,'192.168.10.215',NOW());
+(NULL,1,1,'Av. 20 de Octubre','Fierro Veloz','22015478',0,0,1,NOW(),1,'192.168.10.215',NOW()),
+(NULL,2,2,'Av. Alemana','Taller Iwanaga','25634857',0,0,1,NOW(),1,'192.168.10.215',NOW()),
+(NULL,3,3,'Av. Busch','Taller Brillante','25639845',0,0,1,NOW(),1,'192.168.10.215',NOW()),
+(NULL,4,4,'Av. Los Sargentos','Taller El Tuercas','23561547',0,0,1,NOW(),1,'192.168.10.215',NOW()),
+(NULL,5,5,'Av. Landaeta','Solo Autos','22365894',0,0,1,NOW(),1,'192.168.10.215',NOW());
 
 
 
